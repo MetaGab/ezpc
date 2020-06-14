@@ -28,7 +28,6 @@ namespace MODELO
         public int id_usuario { get; set; }
         public Nullable<int> id_cupon { get; set; }
     
-        public virtual Cupon Cupon { get; set; }
         public virtual Direccion Direccion { get; set; }
         public virtual MetodoPago MetodoPago { get; set; }
         public virtual Usuario Usuario { get; set; }

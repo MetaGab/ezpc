@@ -64,19 +64,6 @@ advertencia 6002: La tabla o vista 'ezpc.dbo.Bitacora_Producto' no tiene definid
     <Property Name="sugerencia" Type="varchar" MaxLength="1023" />
     <Property Name="id_ciudad" Type="int" />
   </EntityType>
-  <EntityType Name="Cupon">
-    <Key>
-      <PropertyRef Name="id" />
-    </Key>
-    <Property Name="id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
-    <Property Name="nombre" Type="varchar" MaxLength="50" Nullable="false" />
-    <Property Name="descripcion" Type="varchar" MaxLength="1023" Nullable="false" />
-    <Property Name="codigo" Type="varchar" MaxLength="50" Nullable="false" />
-    <Property Name="minimo" Type="decimal" Precision="8" Scale="2" Nullable="false" />
-    <Property Name="descuento" Type="decimal" Precision="2" Scale="2" Nullable="false" />
-    <Property Name="expiracion" Type="datetime" Nullable="false" />
-    <Property Name="id_categoria" Type="int" />
-  </EntityType>
   <EntityType Name="Direccion">
     <Key>
       <PropertyRef Name="id" />
@@ -237,18 +224,6 @@ advertencia 6002: La tabla o vista 'ezpc.dbo.Bitacora_Producto' no tiene definid
       </Dependent>
     </ReferentialConstraint>
   </Association>
-  <Association Name="FK__Cupon__id_catego__74AE54BC">
-    <End Role="Categoria" Type="Self.Categoria" Multiplicity="0..1" />
-    <End Role="Cupon" Type="Self.Cupon" Multiplicity="*" />
-    <ReferentialConstraint>
-      <Principal Role="Categoria">
-        <PropertyRef Name="id" />
-      </Principal>
-      <Dependent Role="Cupon">
-        <PropertyRef Name="id_categoria" />
-      </Dependent>
-    </ReferentialConstraint>
-  </Association>
   <Association Name="FK__Direccion__id_ci__60A75C0F">
     <End Role="Ciudad" Type="Self.Ciudad" Multiplicity="1" />
     <End Role="Direccion" Type="Self.Direccion" Multiplicity="*" />
@@ -318,18 +293,6 @@ advertencia 6002: La tabla o vista 'ezpc.dbo.Bitacora_Producto' no tiene definid
       </Principal>
       <Dependent Role="Oferta">
         <PropertyRef Name="id_producto" />
-      </Dependent>
-    </ReferentialConstraint>
-  </Association>
-  <Association Name="FK__Orden__id_cupon__00200768">
-    <End Role="Cupon" Type="Self.Cupon" Multiplicity="0..1" />
-    <End Role="Orden" Type="Self.Orden" Multiplicity="*" />
-    <ReferentialConstraint>
-      <Principal Role="Cupon">
-        <PropertyRef Name="id" />
-      </Principal>
-      <Dependent Role="Orden">
-        <PropertyRef Name="id_cupon" />
       </Dependent>
     </ReferentialConstraint>
   </Association>
@@ -432,7 +395,6 @@ advertencia 6002: La tabla o vista 'ezpc.dbo.Bitacora_Producto' no tiene definid
     <EntitySet Name="Categoria" EntityType="Self.Categoria" Schema="dbo" store:Type="Tables" />
     <EntitySet Name="Ciudad" EntityType="Self.Ciudad" Schema="dbo" store:Type="Tables" />
     <EntitySet Name="Contacto" EntityType="Self.Contacto" Schema="dbo" store:Type="Tables" />
-    <EntitySet Name="Cupon" EntityType="Self.Cupon" Schema="dbo" store:Type="Tables" />
     <EntitySet Name="Direccion" EntityType="Self.Direccion" Schema="dbo" store:Type="Tables" />
     <EntitySet Name="Estado" EntityType="Self.Estado" Schema="dbo" store:Type="Tables" />
     <EntitySet Name="MetodoPago" EntityType="Self.MetodoPago" Schema="dbo" store:Type="Tables" />
@@ -475,10 +437,6 @@ advertencia 6002: La tabla o vista 'ezpc.dbo.Bitacora_Producto' no tiene definid
       <End Role="Ciudad" EntitySet="Ciudad" />
       <End Role="Contacto" EntitySet="Contacto" />
     </AssociationSet>
-    <AssociationSet Name="FK__Cupon__id_catego__74AE54BC" Association="Self.FK__Cupon__id_catego__74AE54BC">
-      <End Role="Categoria" EntitySet="Categoria" />
-      <End Role="Cupon" EntitySet="Cupon" />
-    </AssociationSet>
     <AssociationSet Name="FK__Direccion__id_ci__60A75C0F" Association="Self.FK__Direccion__id_ci__60A75C0F">
       <End Role="Ciudad" EntitySet="Ciudad" />
       <End Role="Direccion" EntitySet="Direccion" />
@@ -502,10 +460,6 @@ advertencia 6002: La tabla o vista 'ezpc.dbo.Bitacora_Producto' no tiene definid
     <AssociationSet Name="FK__Oferta__id_produ__3C34F16F" Association="Self.FK__Oferta__id_produ__3C34F16F">
       <End Role="Producto" EntitySet="Producto" />
       <End Role="Oferta" EntitySet="Oferta" />
-    </AssociationSet>
-    <AssociationSet Name="FK__Orden__id_cupon__00200768" Association="Self.FK__Orden__id_cupon__00200768">
-      <End Role="Cupon" EntitySet="Cupon" />
-      <End Role="Orden" EntitySet="Orden" />
     </AssociationSet>
     <AssociationSet Name="FK__Orden__id_direcc__7E37BEF6" Association="Self.FK__Orden__id_direcc__7E37BEF6">
       <End Role="Direccion" EntitySet="Direccion" />

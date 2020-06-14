@@ -75,9 +75,6 @@
       <DependentUpon>Modelo.tt</DependentUpon>
     </Compile>
     <Compile Include="ContactoModelo.cs" />
-    <Compile Include="Cupon.cs">
-      <DependentUpon>Modelo.tt</DependentUpon>
-    </Compile>
     <Compile Include="Direccion.cs">
       <DependentUpon>Modelo.tt</DependentUpon>
     </Compile>

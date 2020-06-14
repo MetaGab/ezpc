@@ -31,7 +31,6 @@ namespace MODELO
         public virtual DbSet<Categoria> Categorias { get; set; }
         public virtual DbSet<Ciudad> Ciudades { get; set; }
         public virtual DbSet<Contacto> Contactos { get; set; }
-        public virtual DbSet<Cupon> Cupones { get; set; }
         public virtual DbSet<Direccion> Direcciones { get; set; }
         public virtual DbSet<Estado> Estados { get; set; }
         public virtual DbSet<MetodoPago> MetodosPago { get; set; }
