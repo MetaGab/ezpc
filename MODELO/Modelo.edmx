@@ -5,6 +5,28 @@
     <!-- SSDL content -->
     <edmx:StorageModels>
     <Schema Namespace="MODELO.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+        <!--Errores durante la generación:
+advertencia 6002: La tabla o vista 'ezpc.dbo.Bitacora_Oferta' no tiene definida ninguna clave principal. Se ha inferido la clave y la definición se creado como una vista o tabla de solo lectura.-->
+        <EntityType Name="Bitacora_Oferta">
+          <Key>
+            <PropertyRef Name="fecha" />
+          </Key>
+          <Property Name="campos" Type="varchar" MaxLength="2048" />
+          <Property Name="fecha" Type="datetime" Nullable="false" />
+          <Property Name="usuario" Type="varchar" MaxLength="128" />
+          <Property Name="tipo_operacion" Type="varchar" MaxLength="50" />
+        </EntityType>
+        <!--Errores durante la generación:
+advertencia 6002: La tabla o vista 'ezpc.dbo.Bitacora_Producto' no tiene definida ninguna clave principal. Se ha inferido la clave y la definición se creado como una vista o tabla de solo lectura.-->
+        <EntityType Name="Bitacora_Producto">
+          <Key>
+            <PropertyRef Name="fecha" />
+          </Key>
+          <Property Name="campos" Type="varchar" MaxLength="2048" />
+          <Property Name="fecha" Type="datetime" Nullable="false" />
+          <Property Name="usuario" Type="varchar" MaxLength="128" />
+          <Property Name="tipo_operacion" Type="varchar" MaxLength="50" />
+        </EntityType>
         <EntityType Name="CarritoItem">
           <Key>
             <PropertyRef Name="id" />
@@ -400,6 +422,16 @@
             </Dependent>
           </ReferentialConstraint>
         </Association>
+        <Function Name="Crear_Carrito" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="id_usuario" Type="int" Mode="In" />
+          <Parameter Name="id_producto" Type="int" Mode="In" />
+          <Parameter Name="cantidad" Type="int" Mode="In" />
+        </Function>
+        <Function Name="Crear_Orden" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="id_usuario" Type="int" Mode="In" />
+          <Parameter Name="id_pago" Type="int" Mode="In" />
+          <Parameter Name="id_direccion" Type="int" Mode="In" />
+        </Function>
         <EntityContainer Name="MODELOStoreContainer">
           <EntitySet Name="CarritoItem" EntityType="Self.CarritoItem" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="Categoria" EntityType="Self.Categoria" Schema="dbo" store:Type="Tables" />
@@ -416,6 +448,22 @@
           <EntitySet Name="Producto" EntityType="Self.Producto" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="TipoUsuario" EntityType="Self.TipoUsuario" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="Usuario" EntityType="Self.Usuario" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Bitacora_Oferta" EntityType="Self.Bitacora_Oferta" store:Type="Tables" store:Schema="dbo">
+            <DefiningQuery>SELECT 
+    [Bitacora_Oferta].[campos] AS [campos], 
+    [Bitacora_Oferta].[fecha] AS [fecha], 
+    [Bitacora_Oferta].[usuario] AS [usuario], 
+    [Bitacora_Oferta].[tipo_operacion] AS [tipo_operacion]
+    FROM [dbo].[Bitacora_Oferta] AS [Bitacora_Oferta]</DefiningQuery>
+          </EntitySet>
+          <EntitySet Name="Bitacora_Producto" EntityType="Self.Bitacora_Producto" store:Type="Tables" store:Schema="dbo">
+            <DefiningQuery>SELECT 
+    [Bitacora_Producto].[campos] AS [campos], 
+    [Bitacora_Producto].[fecha] AS [fecha], 
+    [Bitacora_Producto].[usuario] AS [usuario], 
+    [Bitacora_Producto].[tipo_operacion] AS [tipo_operacion]
+    FROM [dbo].[Bitacora_Producto] AS [Bitacora_Producto]</DefiningQuery>
+          </EntitySet>
           <AssociationSet Name="FK__CarritoIt__id_pr__70DDC3D8" Association="Self.FK__CarritoIt__id_pr__70DDC3D8">
             <End Role="Producto" EntitySet="Producto" />
             <End Role="CarritoItem" EntitySet="CarritoItem" />
@@ -1000,6 +1048,18 @@
             <End Role="Producto" EntitySet="Productos" />
             <End Role="Oferta" EntitySet="Ofertas" />
           </AssociationSet>
+          <EntitySet Name="Bitacora_Oferta" EntityType="MODELO.Bitacora_Oferta" />
+          <EntitySet Name="Bitacora_Producto" EntityType="MODELO.Bitacora_Producto" />
+          <FunctionImport Name="Crear_Carrito">
+            <Parameter Name="id_usuario" Mode="In" Type="Int32" />
+            <Parameter Name="id_producto" Mode="In" Type="Int32" />
+            <Parameter Name="cantidad" Mode="In" Type="Int32" />
+          </FunctionImport>
+          <FunctionImport Name="Crear_Orden">
+            <Parameter Name="id_usuario" Mode="In" Type="Int32" />
+            <Parameter Name="id_pago" Mode="In" Type="Int32" />
+            <Parameter Name="id_direccion" Mode="In" Type="Int32" />
+          </FunctionImport>
         </EntityContainer>
         <EntityType Name="Oferta">
           <Key>
@@ -1023,6 +1083,24 @@
             </Dependent>
           </ReferentialConstraint>
         </Association>
+        <EntityType Name="Bitacora_Oferta">
+          <Key>
+            <PropertyRef Name="fecha" />
+          </Key>
+          <Property Name="campos" Type="String" MaxLength="2048" FixedLength="false" Unicode="false" />
+          <Property Name="fecha" Type="DateTime" Nullable="false" Precision="3" />
+          <Property Name="usuario" Type="String" MaxLength="128" FixedLength="false" Unicode="false" />
+          <Property Name="tipo_operacion" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+        </EntityType>
+        <EntityType Name="Bitacora_Producto">
+          <Key>
+            <PropertyRef Name="fecha" />
+          </Key>
+          <Property Name="campos" Type="String" MaxLength="2048" FixedLength="false" Unicode="false" />
+          <Property Name="fecha" Type="DateTime" Nullable="false" Precision="3" />
+          <Property Name="usuario" Type="String" MaxLength="128" FixedLength="false" Unicode="false" />
+          <Property Name="tipo_operacion" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+        </EntityType>
       </Schema>
     </edmx:ConceptualModels>
     <!-- C-S mapping content -->
@@ -1211,6 +1289,28 @@
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
+          <EntitySetMapping Name="Bitacora_Oferta">
+            <EntityTypeMapping TypeName="MODELO.Bitacora_Oferta">
+              <MappingFragment StoreEntitySet="Bitacora_Oferta">
+                <ScalarProperty Name="tipo_operacion" ColumnName="tipo_operacion" />
+                <ScalarProperty Name="usuario" ColumnName="usuario" />
+                <ScalarProperty Name="fecha" ColumnName="fecha" />
+                <ScalarProperty Name="campos" ColumnName="campos" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Bitacora_Producto">
+            <EntityTypeMapping TypeName="MODELO.Bitacora_Producto">
+              <MappingFragment StoreEntitySet="Bitacora_Producto">
+                <ScalarProperty Name="tipo_operacion" ColumnName="tipo_operacion" />
+                <ScalarProperty Name="usuario" ColumnName="usuario" />
+                <ScalarProperty Name="fecha" ColumnName="fecha" />
+                <ScalarProperty Name="campos" ColumnName="campos" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <FunctionImportMapping FunctionImportName="Crear_Carrito" FunctionName="MODELO.Store.Crear_Carrito" />
+          <FunctionImportMapping FunctionImportName="Crear_Orden" FunctionName="MODELO.Store.Crear_Orden" />
         </EntityContainerMapping>
       </Mapping>
     </edmx:Mappings>

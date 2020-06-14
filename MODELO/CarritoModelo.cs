@@ -14,7 +14,7 @@ namespace MODELO
             {
                 using (var contextoEntidades = new EZPCEntidades())
                 {
-                    contextoEntidades.CarritoItems.Add(objCarritoItem);
+                    contextoEntidades.Crear_Carrito(objCarritoItem.id_usuario, objCarritoItem.id_producto, objCarritoItem.cantidad);
                     contextoEntidades.SaveChanges();
                 }
             }

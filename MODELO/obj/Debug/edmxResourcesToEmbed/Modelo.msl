@@ -183,5 +183,27 @@
         </MappingFragment>
       </EntityTypeMapping>
     </EntitySetMapping>
+    <EntitySetMapping Name="Bitacora_Oferta">
+      <EntityTypeMapping TypeName="MODELO.Bitacora_Oferta">
+        <MappingFragment StoreEntitySet="Bitacora_Oferta">
+          <ScalarProperty Name="tipo_operacion" ColumnName="tipo_operacion" />
+          <ScalarProperty Name="usuario" ColumnName="usuario" />
+          <ScalarProperty Name="fecha" ColumnName="fecha" />
+          <ScalarProperty Name="campos" ColumnName="campos" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Bitacora_Producto">
+      <EntityTypeMapping TypeName="MODELO.Bitacora_Producto">
+        <MappingFragment StoreEntitySet="Bitacora_Producto">
+          <ScalarProperty Name="tipo_operacion" ColumnName="tipo_operacion" />
+          <ScalarProperty Name="usuario" ColumnName="usuario" />
+          <ScalarProperty Name="fecha" ColumnName="fecha" />
+          <ScalarProperty Name="campos" ColumnName="campos" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <FunctionImportMapping FunctionImportName="Crear_Carrito" FunctionName="MODELO.Store.Crear_Carrito" />
+    <FunctionImportMapping FunctionImportName="Crear_Orden" FunctionName="MODELO.Store.Crear_Orden" />
   </EntityContainerMapping>
 </Mapping>

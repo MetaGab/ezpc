@@ -14,17 +14,17 @@
     <link rel="apple-touch-icon" href="apple-icon.png">
     <link rel="shortcut icon" href="favicon.ico">
 
-    <link rel="stylesheet" href="Include/vendors/bootstrap/dist/css/bootstrap.min.css">
-    <link rel="stylesheet" href="Include/vendors/font-awesome/css/font-awesome.min.css">
-    <link rel="stylesheet" href="Include/vendors/themify-icons/css/themify-icons.css">
-    <link rel="stylesheet" href="Include/vendors/flag-icon-css/css/flag-icon.min.css">
-    <link rel="stylesheet" href="Include/vendors/selectFX/css/cs-skin-elastic.css">
-    <link rel="stylesheet" href="Include/vendors/jqvmap/dist/jqvmap.min.css">
-    <link rel="stylesheet" href="Include/vendors/datatables.net-bs4/css/dataTables.bootstrap4.min.css">
-    <link rel="stylesheet" href="Include/vendors/datatables.net-buttons-bs4/css/buttons.bootstrap4.min.css">
+    <link rel="stylesheet" href="/Include/vendors/bootstrap/dist/css/bootstrap.min.css">
+    <link rel="stylesheet" href="/Include/vendors/font-awesome/css/font-awesome.min.css">
+    <link rel="stylesheet" href="/Include/vendors/themify-icons/css/themify-icons.css">
+    <link rel="stylesheet" href="/Include/vendors/flag-icon-css/css/flag-icon.min.css">
+    <link rel="stylesheet" href="/Include/vendors/selectFX/css/cs-skin-elastic.css">
+    <link rel="stylesheet" href="/Include/vendors/jqvmap/dist/jqvmap.min.css">
+    <link rel="stylesheet" href="/Include/vendors/datatables.net-bs4/css/dataTables.bootstrap4.min.css">
+    <link rel="stylesheet" href="/Include/vendors/datatables.net-buttons-bs4/css/buttons.bootstrap4.min.css">
 
 
-    <link rel="stylesheet" href="Include/backoffice/css/style.css">
+    <link rel="stylesheet" href="/Include/backoffice/css/style.css">
 
     <link href='https://fonts.googleapis.com/css?family=Open+Sans:400,600,700,800' rel='stylesheet' type='text/css'>
 
@@ -42,34 +42,41 @@
                 <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#main-menu" aria-controls="main-menu" aria-expanded="false" aria-label="Toggle navigation">
                     <i class="fa fa-bars"></i>
                 </button>
-                <a class="navbar-brand" href="/dashboard.aspx"><img src="Include/img/logoG.png" alt="" /></a>
+                <a class="navbar-brand" href="/index.aspx"><img src="/Include/img/logoG.png" alt="" /></a>
             </div>
 
             <div id="main-menu" class="main-menu collapse navbar-collapse">
                 <ul class="nav navbar-nav">
                     <li class="active">
-                        <a href="dashboard.aspx"> <i class="menu-icon fa fa-dashboard"></i>Dashboard </a>
+                        <a href="/dashboard.aspx"> <i class="menu-icon fa fa-dashboard"></i>Dashboard </a>
                     </li>
                     <li class="menu-item-has-children dropdown">
                         <a href="#" class="dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"> <i class="menu-icon fa fa-laptop"></i>CRUD</a>
                         <ul class="sub-menu children dropdown-menu">
-                            <li><i class="fa fa-folder"></i><a href="crud-cat.aspx">Categorias</a></li>
-                            <li><i class="fa fa-dropbox"></i><a href="crud-prod.aspx">Productos</a></li>
-                            <li><i class="fa fa-shopping-cart"></i><a href="crud-oferta.aspx">Ofertas</a></li>
+                            <li><i class="fa fa-folder"></i><a href="/crud-cat.aspx">Categorias</a></li>
+                            <li><i class="fa fa-dropbox"></i><a href="/crud-prod.aspx">Productos</a></li>
+                            <li><i class="fa fa-shopping-cart"></i><a href="/crud-oferta.aspx">Ofertas</a></li>
                         </ul>
                     </li>
                     <li class="menu-item-has-children dropdown">
                         <a href="#" class="dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"> <i class="menu-icon fa fa-file-text"></i>Registros</a>
                         <ul class="sub-menu children dropdown-menu">
-                            <li><i class="fa fa-money"></i><a href="ordenes.aspx">Ordenes</a></li>
-                            <li><i class="fa fa-user"></i><a href="usuarios.aspx">Usuarios</a></li>
-                            <li><i class="fa fa-envelope"></i><a href="mensajes.aspx">Mensajes</a></li>
+                            <li><i class="fa fa-money"></i><a href="/ordenes.aspx">Ordenes</a></li>
+                            <li><i class="fa fa-user"></i><a href="/usuarios.aspx">Usuarios</a></li>
+                            <li><i class="fa fa-envelope"></i><a href="/mensajes.aspx">Mensajes</a></li>
+                        </ul>
+                    </li>
+                    <li class="menu-item-has-children dropdown">
+                        <a href="#" class="dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"> <i class="menu-icon fa fa-table"></i>Bitacoras</a>
+                        <ul class="sub-menu children dropdown-menu">
+                            <li><i class="fa fa-money"></i><a href="/Bitacora/producto.aspx">Productos</a></li>
+                            <li><i class="fa fa-user"></i><a href="/Bitacora/oferta.aspx">Ofertas</a></li>
                         </ul>
                     </li>
                     <li class="menu-item-has-children dropdown">
                         <a href="#" class="dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"> <i class="menu-icon fa fa-bar-chart"></i>Estadisticas</a>
                         <ul class="sub-menu children dropdown-menu">
-                            <li><i class="menu-icon fa fa-line-chart"></i><a href="ventas.aspx">Ventas</a></li>
+                            <li><i class="menu-icon fa fa-line-chart"></i><a href="/ventas.aspx">Ventas</a></li>
                         </ul>
                     </li>
 
@@ -152,18 +159,18 @@
 
     <!-- Right Panel -->
 
-    <script src="Include/vendors/jquery/dist/jquery.min.js"></script>
-    <script src="Include/vendors/popper.js/dist/umd/popper.min.js"></script>
-    <script src="Include/vendors/bootstrap/dist/js/bootstrap.min.js"></script>
-    <script src="Include/backoffice/js/main.js"></script>
+    <script src="/Include/vendors/jquery/dist/jquery.min.js"></script>
+    <script src="/Include/vendors/popper.js/dist/umd/popper.min.js"></script>
+    <script src="/Include/vendors/bootstrap/dist/js/bootstrap.min.js"></script>
+    <script src="/Include/backoffice/js/main.js"></script>
 
 
-    <script src="Include/vendors/chart.js/dist/Chart.bundle.min.js"></script>
-    <script src="Include/backoffice/js/dashboard.js"></script>
-    <script src="Include/backoffice/js/widgets.js"></script>
-    <script src="Include/vendors/jqvmap/dist/jquery.vmap.min.js"></script>
-    <script src="Include/vendors/jqvmap/examples/js/jquery.vmap.sampledata.js"></script>
-    <script src="Include/vendors/jqvmap/dist/maps/jquery.vmap.world.js"></script>
+    <script src="/Include/vendors/chart.js/dist/Chart.bundle.min.js"></script>
+    <script src="/Include/backoffice/js/dashboard.js"></script>
+    <script src="/Include/backoffice/js/widgets.js"></script>
+    <script src="/Include/vendors/jqvmap/dist/jquery.vmap.min.js"></script>
+    <script src="/Include/vendors/jqvmap/examples/js/jquery.vmap.sampledata.js"></script>
+    <script src="/Include/vendors/jqvmap/dist/maps/jquery.vmap.world.js"></script>
     <script>
         (function($) {
             "use strict";

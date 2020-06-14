@@ -503,6 +503,18 @@
       <End Role="Producto" EntitySet="Productos" />
       <End Role="Oferta" EntitySet="Ofertas" />
     </AssociationSet>
+    <EntitySet Name="Bitacora_Oferta" EntityType="MODELO.Bitacora_Oferta" />
+    <EntitySet Name="Bitacora_Producto" EntityType="MODELO.Bitacora_Producto" />
+    <FunctionImport Name="Crear_Carrito">
+      <Parameter Name="id_usuario" Mode="In" Type="Int32" />
+      <Parameter Name="id_producto" Mode="In" Type="Int32" />
+      <Parameter Name="cantidad" Mode="In" Type="Int32" />
+    </FunctionImport>
+    <FunctionImport Name="Crear_Orden">
+      <Parameter Name="id_usuario" Mode="In" Type="Int32" />
+      <Parameter Name="id_pago" Mode="In" Type="Int32" />
+      <Parameter Name="id_direccion" Mode="In" Type="Int32" />
+    </FunctionImport>
   </EntityContainer>
   <EntityType Name="Oferta">
     <Key>
@@ -526,4 +538,22 @@
       </Dependent>
     </ReferentialConstraint>
   </Association>
+  <EntityType Name="Bitacora_Oferta">
+    <Key>
+      <PropertyRef Name="fecha" />
+    </Key>
+    <Property Name="campos" Type="String" MaxLength="2048" FixedLength="false" Unicode="false" />
+    <Property Name="fecha" Type="DateTime" Nullable="false" Precision="3" />
+    <Property Name="usuario" Type="String" MaxLength="128" FixedLength="false" Unicode="false" />
+    <Property Name="tipo_operacion" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+  </EntityType>
+  <EntityType Name="Bitacora_Producto">
+    <Key>
+      <PropertyRef Name="fecha" />
+    </Key>
+    <Property Name="campos" Type="String" MaxLength="2048" FixedLength="false" Unicode="false" />
+    <Property Name="fecha" Type="DateTime" Nullable="false" Precision="3" />
+    <Property Name="usuario" Type="String" MaxLength="128" FixedLength="false" Unicode="false" />
+    <Property Name="tipo_operacion" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+  </EntityType>
 </Schema>

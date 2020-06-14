@@ -1,5 +1,27 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <Schema Namespace="MODELO.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+  <!--Errores durante la generación:
+advertencia 6002: La tabla o vista 'ezpc.dbo.Bitacora_Oferta' no tiene definida ninguna clave principal. Se ha inferido la clave y la definición se creado como una vista o tabla de solo lectura.-->
+  <EntityType Name="Bitacora_Oferta">
+    <Key>
+      <PropertyRef Name="fecha" />
+    </Key>
+    <Property Name="campos" Type="varchar" MaxLength="2048" />
+    <Property Name="fecha" Type="datetime" Nullable="false" />
+    <Property Name="usuario" Type="varchar" MaxLength="128" />
+    <Property Name="tipo_operacion" Type="varchar" MaxLength="50" />
+  </EntityType>
+  <!--Errores durante la generación:
+advertencia 6002: La tabla o vista 'ezpc.dbo.Bitacora_Producto' no tiene definida ninguna clave principal. Se ha inferido la clave y la definición se creado como una vista o tabla de solo lectura.-->
+  <EntityType Name="Bitacora_Producto">
+    <Key>
+      <PropertyRef Name="fecha" />
+    </Key>
+    <Property Name="campos" Type="varchar" MaxLength="2048" />
+    <Property Name="fecha" Type="datetime" Nullable="false" />
+    <Property Name="usuario" Type="varchar" MaxLength="128" />
+    <Property Name="tipo_operacion" Type="varchar" MaxLength="50" />
+  </EntityType>
   <EntityType Name="CarritoItem">
     <Key>
       <PropertyRef Name="id" />
@@ -395,6 +417,16 @@
       </Dependent>
     </ReferentialConstraint>
   </Association>
+  <Function Name="Crear_Carrito" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="id_usuario" Type="int" Mode="In" />
+    <Parameter Name="id_producto" Type="int" Mode="In" />
+    <Parameter Name="cantidad" Type="int" Mode="In" />
+  </Function>
+  <Function Name="Crear_Orden" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="id_usuario" Type="int" Mode="In" />
+    <Parameter Name="id_pago" Type="int" Mode="In" />
+    <Parameter Name="id_direccion" Type="int" Mode="In" />
+  </Function>
   <EntityContainer Name="MODELOStoreContainer">
     <EntitySet Name="CarritoItem" EntityType="Self.CarritoItem" Schema="dbo" store:Type="Tables" />
     <EntitySet Name="Categoria" EntityType="Self.Categoria" Schema="dbo" store:Type="Tables" />
@@ -411,6 +443,22 @@
     <EntitySet Name="Producto" EntityType="Self.Producto" Schema="dbo" store:Type="Tables" />
     <EntitySet Name="TipoUsuario" EntityType="Self.TipoUsuario" Schema="dbo" store:Type="Tables" />
     <EntitySet Name="Usuario" EntityType="Self.Usuario" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Bitacora_Oferta" EntityType="Self.Bitacora_Oferta" store:Type="Tables" store:Schema="dbo">
+      <DefiningQuery>SELECT 
+    [Bitacora_Oferta].[campos] AS [campos], 
+    [Bitacora_Oferta].[fecha] AS [fecha], 
+    [Bitacora_Oferta].[usuario] AS [usuario], 
+    [Bitacora_Oferta].[tipo_operacion] AS [tipo_operacion]
+    FROM [dbo].[Bitacora_Oferta] AS [Bitacora_Oferta]</DefiningQuery>
+    </EntitySet>
+    <EntitySet Name="Bitacora_Producto" EntityType="Self.Bitacora_Producto" store:Type="Tables" store:Schema="dbo">
+      <DefiningQuery>SELECT 
+    [Bitacora_Producto].[campos] AS [campos], 
+    [Bitacora_Producto].[fecha] AS [fecha], 
+    [Bitacora_Producto].[usuario] AS [usuario], 
+    [Bitacora_Producto].[tipo_operacion] AS [tipo_operacion]
+    FROM [dbo].[Bitacora_Producto] AS [Bitacora_Producto]</DefiningQuery>
+    </EntitySet>
     <AssociationSet Name="FK__CarritoIt__id_pr__70DDC3D8" Association="Self.FK__CarritoIt__id_pr__70DDC3D8">
       <End Role="Producto" EntitySet="Producto" />
       <End Role="CarritoItem" EntitySet="CarritoItem" />

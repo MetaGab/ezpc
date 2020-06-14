@@ -6,13 +6,13 @@
 //     Los cambios manuales en este archivo se sobrescribirán si se regenera el código.
 // </auto-generated>
 //------------------------------------------------------------------------------
-using System.ComponentModel.DataAnnotations.Schema;
 
 namespace MODELO
 {
     using System;
     using System.Collections.Generic;
-    
+    using System.ComponentModel.DataAnnotations.Schema;
+
     public partial class Producto
     {
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2214:DoNotCallOverridableMethodsInConstructors")]
@@ -27,10 +27,17 @@ namespace MODELO
         public string nombre { get; set; }
         public string descripcion { get; set; }
         public decimal precio { get; set; }
+        public int stock { get; set; }
+        public bool activo { get; set; }
+        public Nullable<int> id_categoria { get; set; }
+        public string imagen { get; set; }
+
         [NotMapped]
-        public decimal precio_real { get
+        public decimal precio_real
+        {
+            get
             {
-                if (Oferta.Count>0)
+                if (Oferta.Count > 0)
                 {
                     return Math.Round(precio * (1 - OfertaModelo.ObtenerOfertasDeProducto(this).descuento), 2);
                 }
@@ -40,11 +47,7 @@ namespace MODELO
             {
             }
         }
-        public int stock { get; set; }
-        public bool activo { get; set; }
-        public Nullable<int> id_categoria { get; set; }
-        public string imagen { get; set; }
-    
+
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<CarritoItem> CarritoItem { get; set; }
         public virtual Categoria Categoria { get; set; }

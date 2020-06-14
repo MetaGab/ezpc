@@ -8,3 +8,14 @@ C:\Users\Gabo\source\repos\ProyectoFinal\MODELO\bin\Debug\EntityFramework.SqlSer
 C:\Users\Gabo\source\repos\ProyectoFinal\MODELO\obj\Debug\MODELO.csproj.CopyComplete
 C:\Users\Gabo\source\repos\ProyectoFinal\MODELO\obj\Debug\MODELO.dll
 C:\Users\Gabo\source\repos\ProyectoFinal\MODELO\obj\Debug\MODELO.pdb
+C:\Users\Gabo\Google Drive\gascabros\ProyectoFinal\MODELO\bin\Debug\MODELO.dll.config
+C:\Users\Gabo\Google Drive\gascabros\ProyectoFinal\MODELO\bin\Debug\MODELO.dll
+C:\Users\Gabo\Google Drive\gascabros\ProyectoFinal\MODELO\bin\Debug\MODELO.pdb
+C:\Users\Gabo\Google Drive\gascabros\ProyectoFinal\MODELO\bin\Debug\EntityFramework.dll
+C:\Users\Gabo\Google Drive\gascabros\ProyectoFinal\MODELO\bin\Debug\EntityFramework.SqlServer.dll
+C:\Users\Gabo\Google Drive\gascabros\ProyectoFinal\MODELO\bin\Debug\EntityFramework.xml
+C:\Users\Gabo\Google Drive\gascabros\ProyectoFinal\MODELO\bin\Debug\EntityFramework.SqlServer.xml
+C:\Users\Gabo\Google Drive\gascabros\ProyectoFinal\MODELO\obj\Debug\MODELO.csprojAssemblyReference.cache
+C:\Users\Gabo\Google Drive\gascabros\ProyectoFinal\MODELO\obj\Debug\MODELO.csproj.CopyComplete
+C:\Users\Gabo\Google Drive\gascabros\ProyectoFinal\MODELO\obj\Debug\MODELO.dll
+C:\Users\Gabo\Google Drive\gascabros\ProyectoFinal\MODELO\obj\Debug\MODELO.pdb

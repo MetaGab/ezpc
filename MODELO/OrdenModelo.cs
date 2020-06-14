@@ -8,13 +8,13 @@ namespace MODELO
 {
     public class OrdenModelo
     {
-        static public void InsertarOrden(Orden objOrden)
+        static public void InsertarOrden(int usuario, int pago, int direccion)
         {
             try
             {
                 using (var contextoEntidades = new EZPCEntidades())
                 {
-                    contextoEntidades.Ordenes.Add(objOrden);
+                    contextoEntidades.Crear_Orden(usuario, pago, direccion);
                     contextoEntidades.SaveChanges();
                 }
             }

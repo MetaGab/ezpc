@@ -9,3 +9,14 @@ C:\Users\Gabo\source\repos\ProyectoFinal\CONTROLADOR\obj\Debug\CONTROLADOR.cspro
 C:\Users\Gabo\source\repos\ProyectoFinal\CONTROLADOR\obj\Debug\CONTROLADOR.csproj.CopyComplete
 C:\Users\Gabo\source\repos\ProyectoFinal\CONTROLADOR\obj\Debug\CONTROLADOR.dll
 C:\Users\Gabo\source\repos\ProyectoFinal\CONTROLADOR\obj\Debug\CONTROLADOR.pdb
+C:\Users\Gabo\Google Drive\gascabros\ProyectoFinal\CONTROLADOR\bin\Debug\CONTROLADOR.dll
+C:\Users\Gabo\Google Drive\gascabros\ProyectoFinal\CONTROLADOR\bin\Debug\CONTROLADOR.pdb
+C:\Users\Gabo\Google Drive\gascabros\ProyectoFinal\CONTROLADOR\bin\Debug\MODELO.dll
+C:\Users\Gabo\Google Drive\gascabros\ProyectoFinal\CONTROLADOR\bin\Debug\EntityFramework.dll
+C:\Users\Gabo\Google Drive\gascabros\ProyectoFinal\CONTROLADOR\bin\Debug\MODELO.pdb
+C:\Users\Gabo\Google Drive\gascabros\ProyectoFinal\CONTROLADOR\bin\Debug\MODELO.dll.config
+C:\Users\Gabo\Google Drive\gascabros\ProyectoFinal\CONTROLADOR\bin\Debug\EntityFramework.xml
+C:\Users\Gabo\Google Drive\gascabros\ProyectoFinal\CONTROLADOR\obj\Debug\CONTROLADOR.csprojAssemblyReference.cache
+C:\Users\Gabo\Google Drive\gascabros\ProyectoFinal\CONTROLADOR\obj\Debug\CONTROLADOR.csproj.CopyComplete
+C:\Users\Gabo\Google Drive\gascabros\ProyectoFinal\CONTROLADOR\obj\Debug\CONTROLADOR.dll
+C:\Users\Gabo\Google Drive\gascabros\ProyectoFinal\CONTROLADOR\obj\Debug\CONTROLADOR.pdb

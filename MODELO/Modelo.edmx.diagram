@@ -39,6 +39,8 @@
         <AssociationConnector Association="MODELO.FK__Usuario__id_tipo__5535A963" ManuallyRouted="false" />
         <EntityTypeShape EntityType="MODELO.Oferta" Width="1.5" PointX="5.25" PointY="11.25" />
         <AssociationConnector Association="MODELO.FK__Oferta__id_produ__3C34F16F" />
+        <EntityTypeShape EntityType="MODELO.Bitacora_Oferta" Width="1.5" PointX="0.75" PointY="0.75" />
+        <EntityTypeShape EntityType="MODELO.Bitacora_Producto" Width="1.5" PointX="10.75" PointY="9.75" />
       </Diagram>
     </edmx:Diagrams>
   </edmx:Designer>

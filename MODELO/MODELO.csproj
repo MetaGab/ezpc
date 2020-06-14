@@ -53,6 +53,13 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="BitacoraModelo.cs" />
+    <Compile Include="Bitacora_Oferta.cs">
+      <DependentUpon>Modelo.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Bitacora_Producto.cs">
+      <DependentUpon>Modelo.tt</DependentUpon>
+    </Compile>
     <Compile Include="CarritoItem.cs">
       <DependentUpon>Modelo.tt</DependentUpon>
     </Compile>
