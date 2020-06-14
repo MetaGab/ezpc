@@ -1,0 +1,491 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Schema Namespace="MODELO.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+  <EntityType Name="CarritoItem">
+    <Key>
+      <PropertyRef Name="id" />
+    </Key>
+    <Property Name="id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="cantidad" Type="int" Nullable="false" />
+    <Property Name="id_producto" Type="int" Nullable="false" />
+    <Property Name="id_usuario" Type="int" Nullable="false" />
+  </EntityType>
+  <EntityType Name="Categoria">
+    <Key>
+      <PropertyRef Name="id" />
+    </Key>
+    <Property Name="id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="nombre" Type="varchar" MaxLength="50" Nullable="false" />
+    <Property Name="activo" Type="bit" Nullable="false" />
+  </EntityType>
+  <EntityType Name="Ciudad">
+    <Key>
+      <PropertyRef Name="id" />
+    </Key>
+    <Property Name="id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="nombre" Type="varchar" MaxLength="255" Nullable="false" />
+    <Property Name="latitud" Type="decimal" Precision="10" Scale="8" />
+    <Property Name="longitud" Type="decimal" Precision="11" Scale="8" />
+    <Property Name="id_estado" Type="int" Nullable="false" />
+  </EntityType>
+  <EntityType Name="Contacto">
+    <Key>
+      <PropertyRef Name="id" />
+    </Key>
+    <Property Name="id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="nombre" Type="varchar" MaxLength="50" Nullable="false" />
+    <Property Name="primer_apellido" Type="varchar" MaxLength="50" Nullable="false" />
+    <Property Name="segundo_apellido" Type="varchar" MaxLength="50" />
+    <Property Name="email" Type="varchar" MaxLength="25" Nullable="false" />
+    <Property Name="telefono" Type="varchar" MaxLength="12" />
+    <Property Name="direccion" Type="varchar" MaxLength="255" />
+    <Property Name="num_ext" Type="varchar" MaxLength="5" />
+    <Property Name="sugerencia" Type="varchar" MaxLength="1023" />
+    <Property Name="id_ciudad" Type="int" />
+  </EntityType>
+  <EntityType Name="Cupon">
+    <Key>
+      <PropertyRef Name="id" />
+    </Key>
+    <Property Name="id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="nombre" Type="varchar" MaxLength="50" Nullable="false" />
+    <Property Name="descripcion" Type="varchar" MaxLength="1023" Nullable="false" />
+    <Property Name="codigo" Type="varchar" MaxLength="50" Nullable="false" />
+    <Property Name="minimo" Type="decimal" Precision="8" Scale="2" Nullable="false" />
+    <Property Name="descuento" Type="decimal" Precision="2" Scale="2" Nullable="false" />
+    <Property Name="expiracion" Type="datetime" Nullable="false" />
+    <Property Name="id_categoria" Type="int" />
+  </EntityType>
+  <EntityType Name="Direccion">
+    <Key>
+      <PropertyRef Name="id" />
+    </Key>
+    <Property Name="id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="direccion" Type="varchar" MaxLength="255" Nullable="false" />
+    <Property Name="num_ext" Type="varchar" MaxLength="5" Nullable="false" />
+    <Property Name="num_int" Type="varchar" MaxLength="5" />
+    <Property Name="codigo_postal" Type="varchar" MaxLength="5" Nullable="false" />
+    <Property Name="id_usuario" Type="int" Nullable="false" />
+    <Property Name="id_ciudad" Type="int" Nullable="false" />
+  </EntityType>
+  <EntityType Name="Estado">
+    <Key>
+      <PropertyRef Name="id" />
+    </Key>
+    <Property Name="id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="nombre" Type="varchar" MaxLength="255" Nullable="false" />
+    <Property Name="abreviacion" Type="varchar" MaxLength="10" />
+    <Property Name="id_pais" Type="int" Nullable="false" />
+  </EntityType>
+  <EntityType Name="MetodoPago">
+    <Key>
+      <PropertyRef Name="id" />
+    </Key>
+    <Property Name="id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="nombre" Type="varchar" MaxLength="50" Nullable="false" />
+    <Property Name="apellido" Type="varchar" MaxLength="50" Nullable="false" />
+    <Property Name="codigo_postal" Type="varchar" MaxLength="5" />
+    <Property Name="numero_tarjeta" Type="varchar" MaxLength="16" Nullable="false" />
+    <Property Name="numero_seguridad" Type="varchar" MaxLength="3" Nullable="false" />
+    <Property Name="fecha_vencimiento" Type="date" />
+    <Property Name="activo" Type="bit" Nullable="false" />
+    <Property Name="id_usuario" Type="int" Nullable="false" />
+    <Property Name="id_direccion" Type="int" Nullable="false" />
+  </EntityType>
+  <EntityType Name="Oferta">
+    <Key>
+      <PropertyRef Name="id" />
+    </Key>
+    <Property Name="id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="descuento" Type="decimal" Precision="2" Scale="2" Nullable="false" />
+    <Property Name="expiracion" Type="datetime" Nullable="false" />
+    <Property Name="id_producto" Type="int" />
+  </EntityType>
+  <EntityType Name="Orden">
+    <Key>
+      <PropertyRef Name="id" />
+    </Key>
+    <Property Name="id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="costo_total" Type="decimal" Precision="10" Scale="2" />
+    <Property Name="fecha_compra" Type="datetime" Nullable="false" />
+    <Property Name="id_pago" Type="int" Nullable="false" />
+    <Property Name="id_direccion" Type="int" Nullable="false" />
+    <Property Name="id_usuario" Type="int" Nullable="false" />
+    <Property Name="id_cupon" Type="int" />
+  </EntityType>
+  <EntityType Name="OrdenItem">
+    <Key>
+      <PropertyRef Name="id" />
+    </Key>
+    <Property Name="id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="cantidad" Type="int" Nullable="false" />
+    <Property Name="id_producto" Type="int" />
+    <Property Name="id_orden" Type="int" />
+    <Property Name="precio" Type="decimal" Precision="10" Scale="2" />
+  </EntityType>
+  <EntityType Name="Pais">
+    <Key>
+      <PropertyRef Name="id" />
+    </Key>
+    <Property Name="id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="nombre" Type="varchar" MaxLength="255" Nullable="false" />
+    <Property Name="abreviacion" Type="varchar" MaxLength="10" />
+    <Property Name="moneda" Type="varchar" MaxLength="255" />
+    <Property Name="telefono" Type="varchar" MaxLength="20" />
+    <Property Name="bandera" Type="varchar" MaxLength="50" />
+  </EntityType>
+  <EntityType Name="Producto">
+    <Key>
+      <PropertyRef Name="id" />
+    </Key>
+    <Property Name="id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="nombre" Type="varchar" MaxLength="50" Nullable="false" />
+    <Property Name="descripcion" Type="varchar" MaxLength="1023" Nullable="false" />
+    <Property Name="precio" Type="decimal" Precision="8" Scale="2" Nullable="false" />
+    <Property Name="stock" Type="int" Nullable="false" />
+    <Property Name="activo" Type="bit" Nullable="false" />
+    <Property Name="id_categoria" Type="int" />
+    <Property Name="imagen" Type="varchar" MaxLength="100" />
+  </EntityType>
+  <EntityType Name="TipoUsuario">
+    <Key>
+      <PropertyRef Name="id" />
+    </Key>
+    <Property Name="id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="nombre" Type="varchar" MaxLength="50" Nullable="false" />
+  </EntityType>
+  <EntityType Name="Usuario">
+    <Key>
+      <PropertyRef Name="id" />
+    </Key>
+    <Property Name="id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="nombre" Type="varchar" MaxLength="50" Nullable="false" />
+    <Property Name="primer_apellido" Type="varchar" MaxLength="50" Nullable="false" />
+    <Property Name="segundo_apellido" Type="varchar" MaxLength="50" />
+    <Property Name="email" Type="varchar" MaxLength="25" Nullable="false" />
+    <Property Name="contraseña" Type="varchar" MaxLength="255" Nullable="false" />
+    <Property Name="telefono" Type="varchar" MaxLength="12" />
+    <Property Name="activo" Type="bit" Nullable="false" />
+    <Property Name="id_tipo" Type="int" Nullable="false" />
+  </EntityType>
+  <Association Name="FK__CarritoIt__id_pr__70DDC3D8">
+    <End Role="Producto" Type="Self.Producto" Multiplicity="1" />
+    <End Role="CarritoItem" Type="Self.CarritoItem" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Producto">
+        <PropertyRef Name="id" />
+      </Principal>
+      <Dependent Role="CarritoItem">
+        <PropertyRef Name="id_producto" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__CarritoIt__id_us__71D1E811">
+    <End Role="Usuario" Type="Self.Usuario" Multiplicity="1" />
+    <End Role="CarritoItem" Type="Self.CarritoItem" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Usuario">
+        <PropertyRef Name="id" />
+      </Principal>
+      <Dependent Role="CarritoItem">
+        <PropertyRef Name="id_usuario" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__Ciudad__id_estad__5CD6CB2B">
+    <End Role="Estado" Type="Self.Estado" Multiplicity="1" />
+    <End Role="Ciudad" Type="Self.Ciudad" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Estado">
+        <PropertyRef Name="id" />
+      </Principal>
+      <Dependent Role="Ciudad">
+        <PropertyRef Name="id_estado" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__Contacto__id_ciu__151B244E">
+    <End Role="Ciudad" Type="Self.Ciudad" Multiplicity="0..1" />
+    <End Role="Contacto" Type="Self.Contacto" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Ciudad">
+        <PropertyRef Name="id" />
+      </Principal>
+      <Dependent Role="Contacto">
+        <PropertyRef Name="id_ciudad" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__Cupon__id_catego__74AE54BC">
+    <End Role="Categoria" Type="Self.Categoria" Multiplicity="0..1" />
+    <End Role="Cupon" Type="Self.Cupon" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Categoria">
+        <PropertyRef Name="id" />
+      </Principal>
+      <Dependent Role="Cupon">
+        <PropertyRef Name="id_categoria" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__Direccion__id_ci__60A75C0F">
+    <End Role="Ciudad" Type="Self.Ciudad" Multiplicity="1" />
+    <End Role="Direccion" Type="Self.Direccion" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Ciudad">
+        <PropertyRef Name="id" />
+      </Principal>
+      <Dependent Role="Direccion">
+        <PropertyRef Name="id_ciudad" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__Direccion__id_us__5FB337D6">
+    <End Role="Usuario" Type="Self.Usuario" Multiplicity="1" />
+    <End Role="Direccion" Type="Self.Direccion" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Usuario">
+        <PropertyRef Name="id" />
+      </Principal>
+      <Dependent Role="Direccion">
+        <PropertyRef Name="id_usuario" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__Estado__id_pais__59FA5E80">
+    <End Role="Pais" Type="Self.Pais" Multiplicity="1" />
+    <End Role="Estado" Type="Self.Estado" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Pais">
+        <PropertyRef Name="id" />
+      </Principal>
+      <Dependent Role="Estado">
+        <PropertyRef Name="id_pais" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__MetodoPag__id_di__656C112C">
+    <End Role="Direccion" Type="Self.Direccion" Multiplicity="1" />
+    <End Role="MetodoPago" Type="Self.MetodoPago" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Direccion">
+        <PropertyRef Name="id" />
+      </Principal>
+      <Dependent Role="MetodoPago">
+        <PropertyRef Name="id_direccion" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__MetodoPag__id_us__6477ECF3">
+    <End Role="Usuario" Type="Self.Usuario" Multiplicity="1" />
+    <End Role="MetodoPago" Type="Self.MetodoPago" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Usuario">
+        <PropertyRef Name="id" />
+      </Principal>
+      <Dependent Role="MetodoPago">
+        <PropertyRef Name="id_usuario" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__Oferta__id_produ__3C34F16F">
+    <End Role="Producto" Type="Self.Producto" Multiplicity="0..1" />
+    <End Role="Oferta" Type="Self.Oferta" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Producto">
+        <PropertyRef Name="id" />
+      </Principal>
+      <Dependent Role="Oferta">
+        <PropertyRef Name="id_producto" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__Orden__id_cupon__00200768">
+    <End Role="Cupon" Type="Self.Cupon" Multiplicity="0..1" />
+    <End Role="Orden" Type="Self.Orden" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Cupon">
+        <PropertyRef Name="id" />
+      </Principal>
+      <Dependent Role="Orden">
+        <PropertyRef Name="id_cupon" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__Orden__id_direcc__7E37BEF6">
+    <End Role="Direccion" Type="Self.Direccion" Multiplicity="1" />
+    <End Role="Orden" Type="Self.Orden" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Direccion">
+        <PropertyRef Name="id" />
+      </Principal>
+      <Dependent Role="Orden">
+        <PropertyRef Name="id_direccion" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__Orden__id_pago__7D439ABD">
+    <End Role="MetodoPago" Type="Self.MetodoPago" Multiplicity="1" />
+    <End Role="Orden" Type="Self.Orden" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="MetodoPago">
+        <PropertyRef Name="id" />
+      </Principal>
+      <Dependent Role="Orden">
+        <PropertyRef Name="id_pago" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__Orden__id_usuari__7F2BE32F">
+    <End Role="Usuario" Type="Self.Usuario" Multiplicity="1" />
+    <End Role="Orden" Type="Self.Orden" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Usuario">
+        <PropertyRef Name="id" />
+      </Principal>
+      <Dependent Role="Orden">
+        <PropertyRef Name="id_usuario" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__OrdenItem__id_or__03F0984C">
+    <End Role="Orden" Type="Self.Orden" Multiplicity="0..1" />
+    <End Role="OrdenItem" Type="Self.OrdenItem" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Orden">
+        <PropertyRef Name="id" />
+      </Principal>
+      <Dependent Role="OrdenItem">
+        <PropertyRef Name="id_orden" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__OrdenItem__id_pr__02FC7413">
+    <End Role="Producto" Type="Self.Producto" Multiplicity="0..1" />
+    <End Role="OrdenItem" Type="Self.OrdenItem" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Producto">
+        <PropertyRef Name="id" />
+      </Principal>
+      <Dependent Role="OrdenItem">
+        <PropertyRef Name="id_producto" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__Producto__id_cat__6E01572D">
+    <End Role="Categoria" Type="Self.Categoria" Multiplicity="0..1" />
+    <End Role="Producto" Type="Self.Producto" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Categoria">
+        <PropertyRef Name="id" />
+      </Principal>
+      <Dependent Role="Producto">
+        <PropertyRef Name="id_categoria" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__Usuario__id_tipo__5535A963">
+    <End Role="TipoUsuario" Type="Self.TipoUsuario" Multiplicity="1" />
+    <End Role="Usuario" Type="Self.Usuario" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="TipoUsuario">
+        <PropertyRef Name="id" />
+      </Principal>
+      <Dependent Role="Usuario">
+        <PropertyRef Name="id_tipo" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <EntityContainer Name="MODELOStoreContainer">
+    <EntitySet Name="CarritoItem" EntityType="Self.CarritoItem" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Categoria" EntityType="Self.Categoria" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Ciudad" EntityType="Self.Ciudad" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Contacto" EntityType="Self.Contacto" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Cupon" EntityType="Self.Cupon" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Direccion" EntityType="Self.Direccion" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Estado" EntityType="Self.Estado" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="MetodoPago" EntityType="Self.MetodoPago" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Oferta" EntityType="Self.Oferta" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Orden" EntityType="Self.Orden" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="OrdenItem" EntityType="Self.OrdenItem" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Pais" EntityType="Self.Pais" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Producto" EntityType="Self.Producto" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="TipoUsuario" EntityType="Self.TipoUsuario" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Usuario" EntityType="Self.Usuario" Schema="dbo" store:Type="Tables" />
+    <AssociationSet Name="FK__CarritoIt__id_pr__70DDC3D8" Association="Self.FK__CarritoIt__id_pr__70DDC3D8">
+      <End Role="Producto" EntitySet="Producto" />
+      <End Role="CarritoItem" EntitySet="CarritoItem" />
+    </AssociationSet>
+    <AssociationSet Name="FK__CarritoIt__id_us__71D1E811" Association="Self.FK__CarritoIt__id_us__71D1E811">
+      <End Role="Usuario" EntitySet="Usuario" />
+      <End Role="CarritoItem" EntitySet="CarritoItem" />
+    </AssociationSet>
+    <AssociationSet Name="FK__Ciudad__id_estad__5CD6CB2B" Association="Self.FK__Ciudad__id_estad__5CD6CB2B">
+      <End Role="Estado" EntitySet="Estado" />
+      <End Role="Ciudad" EntitySet="Ciudad" />
+    </AssociationSet>
+    <AssociationSet Name="FK__Contacto__id_ciu__151B244E" Association="Self.FK__Contacto__id_ciu__151B244E">
+      <End Role="Ciudad" EntitySet="Ciudad" />
+      <End Role="Contacto" EntitySet="Contacto" />
+    </AssociationSet>
+    <AssociationSet Name="FK__Cupon__id_catego__74AE54BC" Association="Self.FK__Cupon__id_catego__74AE54BC">
+      <End Role="Categoria" EntitySet="Categoria" />
+      <End Role="Cupon" EntitySet="Cupon" />
+    </AssociationSet>
+    <AssociationSet Name="FK__Direccion__id_ci__60A75C0F" Association="Self.FK__Direccion__id_ci__60A75C0F">
+      <End Role="Ciudad" EntitySet="Ciudad" />
+      <End Role="Direccion" EntitySet="Direccion" />
+    </AssociationSet>
+    <AssociationSet Name="FK__Direccion__id_us__5FB337D6" Association="Self.FK__Direccion__id_us__5FB337D6">
+      <End Role="Usuario" EntitySet="Usuario" />
+      <End Role="Direccion" EntitySet="Direccion" />
+    </AssociationSet>
+    <AssociationSet Name="FK__Estado__id_pais__59FA5E80" Association="Self.FK__Estado__id_pais__59FA5E80">
+      <End Role="Pais" EntitySet="Pais" />
+      <End Role="Estado" EntitySet="Estado" />
+    </AssociationSet>
+    <AssociationSet Name="FK__MetodoPag__id_di__656C112C" Association="Self.FK__MetodoPag__id_di__656C112C">
+      <End Role="Direccion" EntitySet="Direccion" />
+      <End Role="MetodoPago" EntitySet="MetodoPago" />
+    </AssociationSet>
+    <AssociationSet Name="FK__MetodoPag__id_us__6477ECF3" Association="Self.FK__MetodoPag__id_us__6477ECF3">
+      <End Role="Usuario" EntitySet="Usuario" />
+      <End Role="MetodoPago" EntitySet="MetodoPago" />
+    </AssociationSet>
+    <AssociationSet Name="FK__Oferta__id_produ__3C34F16F" Association="Self.FK__Oferta__id_produ__3C34F16F">
+      <End Role="Producto" EntitySet="Producto" />
+      <End Role="Oferta" EntitySet="Oferta" />
+    </AssociationSet>
+    <AssociationSet Name="FK__Orden__id_cupon__00200768" Association="Self.FK__Orden__id_cupon__00200768">
+      <End Role="Cupon" EntitySet="Cupon" />
+      <End Role="Orden" EntitySet="Orden" />
+    </AssociationSet>
+    <AssociationSet Name="FK__Orden__id_direcc__7E37BEF6" Association="Self.FK__Orden__id_direcc__7E37BEF6">
+      <End Role="Direccion" EntitySet="Direccion" />
+      <End Role="Orden" EntitySet="Orden" />
+    </AssociationSet>
+    <AssociationSet Name="FK__Orden__id_pago__7D439ABD" Association="Self.FK__Orden__id_pago__7D439ABD">
+      <End Role="MetodoPago" EntitySet="MetodoPago" />
+      <End Role="Orden" EntitySet="Orden" />
+    </AssociationSet>
+    <AssociationSet Name="FK__Orden__id_usuari__7F2BE32F" Association="Self.FK__Orden__id_usuari__7F2BE32F">
+      <End Role="Usuario" EntitySet="Usuario" />
+      <End Role="Orden" EntitySet="Orden" />
+    </AssociationSet>
+    <AssociationSet Name="FK__OrdenItem__id_or__03F0984C" Association="Self.FK__OrdenItem__id_or__03F0984C">
+      <End Role="Orden" EntitySet="Orden" />
+      <End Role="OrdenItem" EntitySet="OrdenItem" />
+    </AssociationSet>
+    <AssociationSet Name="FK__OrdenItem__id_pr__02FC7413" Association="Self.FK__OrdenItem__id_pr__02FC7413">
+      <End Role="Producto" EntitySet="Producto" />
+      <End Role="OrdenItem" EntitySet="OrdenItem" />
+    </AssociationSet>
+    <AssociationSet Name="FK__Producto__id_cat__6E01572D" Association="Self.FK__Producto__id_cat__6E01572D">
+      <End Role="Categoria" EntitySet="Categoria" />
+      <End Role="Producto" EntitySet="Producto" />
+    </AssociationSet>
+    <AssociationSet Name="FK__Usuario__id_tipo__5535A963" Association="Self.FK__Usuario__id_tipo__5535A963">
+      <End Role="TipoUsuario" EntitySet="TipoUsuario" />
+      <End Role="Usuario" EntitySet="Usuario" />
+    </AssociationSet>
+  </EntityContainer>
+</Schema>

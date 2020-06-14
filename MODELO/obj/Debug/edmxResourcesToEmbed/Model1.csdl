@@ -1,0 +1,500 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Schema Namespace="EZPCModelo" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+  <EntityType Name="CarritoItem">
+    <Key>
+      <PropertyRef Name="id" />
+    </Key>
+    <Property Name="id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="cantidad" Type="Int32" Nullable="false" />
+    <Property Name="id_producto" Type="Int32" />
+    <Property Name="id_usuario" Type="Int32" />
+    <NavigationProperty Name="Producto" Relationship="Self.FK__CarritoIt__id_pr__70DDC3D8" FromRole="CarritoItem" ToRole="Producto" />
+    <NavigationProperty Name="Usuario" Relationship="Self.FK__CarritoIt__id_us__71D1E811" FromRole="CarritoItem" ToRole="Usuario" />
+  </EntityType>
+  <EntityType Name="Categoria">
+    <Key>
+      <PropertyRef Name="id" />
+    </Key>
+    <Property Name="id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="nombre" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="activo" Type="Boolean" Nullable="false" />
+    <NavigationProperty Name="Cupon" Relationship="Self.FK__Cupon__id_catego__74AE54BC" FromRole="Categoria" ToRole="Cupon" />
+    <NavigationProperty Name="Producto" Relationship="Self.FK__Producto__id_cat__6E01572D" FromRole="Categoria" ToRole="Producto" />
+  </EntityType>
+  <EntityType Name="Ciudad">
+    <Key>
+      <PropertyRef Name="id" />
+    </Key>
+    <Property Name="id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="nombre" Type="String" MaxLength="255" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="latitud" Type="Decimal" Precision="10" Scale="8" />
+    <Property Name="longitud" Type="Decimal" Precision="11" Scale="8" />
+    <Property Name="id_estado" Type="Int32" Nullable="false" />
+    <NavigationProperty Name="Estado" Relationship="Self.FK__Ciudad__id_estad__5CD6CB2B" FromRole="Ciudad" ToRole="Estado" />
+    <NavigationProperty Name="Direccion" Relationship="Self.FK__Direccion__id_ci__60A75C0F" FromRole="Ciudad" ToRole="Direccion" />
+    <NavigationProperty Name="Contacto" Relationship="EZPCModelo.FK__Contacto__id_ciu__123EB7A3" FromRole="Ciudad" ToRole="Contacto" />
+  </EntityType>
+  <EntityType Name="Cupon">
+    <Key>
+      <PropertyRef Name="id" />
+    </Key>
+    <Property Name="id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="nombre" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="descripcion" Type="String" MaxLength="1023" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="codigo" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="minimo" Type="Decimal" Precision="8" Scale="2" Nullable="false" />
+    <Property Name="descuento" Type="Decimal" Precision="2" Scale="2" Nullable="false" />
+    <Property Name="expiracion" Type="DateTime" Nullable="false" Precision="3" />
+    <Property Name="id_categoria" Type="Int32" />
+    <NavigationProperty Name="Categoria" Relationship="Self.FK__Cupon__id_catego__74AE54BC" FromRole="Cupon" ToRole="Categoria" />
+    <NavigationProperty Name="Orden" Relationship="Self.FK__Orden__id_cupon__00200768" FromRole="Cupon" ToRole="Orden" />
+  </EntityType>
+  <EntityType Name="Direccion">
+    <Key>
+      <PropertyRef Name="id" />
+    </Key>
+    <Property Name="id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="direccion1" Type="String" MaxLength="255" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="num_ext" Type="String" MaxLength="5" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="num_int" Type="String" MaxLength="5" FixedLength="false" Unicode="false" />
+    <Property Name="codigo_postal" Type="String" MaxLength="5" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="id_usuario" Type="Int32" Nullable="false" />
+    <Property Name="id_ciudad" Type="Int32" Nullable="false" />
+    <NavigationProperty Name="Ciudad" Relationship="Self.FK__Direccion__id_ci__60A75C0F" FromRole="Direccion" ToRole="Ciudad" />
+    <NavigationProperty Name="Usuario" Relationship="Self.FK__Direccion__id_us__5FB337D6" FromRole="Direccion" ToRole="Usuario" />
+    <NavigationProperty Name="MetodoPago" Relationship="Self.FK__MetodoPag__id_di__656C112C" FromRole="Direccion" ToRole="MetodoPago" />
+    <NavigationProperty Name="Orden" Relationship="Self.FK__Orden__id_direcc__7E37BEF6" FromRole="Direccion" ToRole="Orden" />
+  </EntityType>
+  <EntityType Name="Estado">
+    <Key>
+      <PropertyRef Name="id" />
+    </Key>
+    <Property Name="id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="nombre" Type="String" MaxLength="255" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="abreviacion" Type="String" MaxLength="10" FixedLength="false" Unicode="false" />
+    <Property Name="id_pais" Type="Int32" Nullable="false" />
+    <NavigationProperty Name="Ciudad" Relationship="Self.FK__Ciudad__id_estad__5CD6CB2B" FromRole="Estado" ToRole="Ciudad" />
+    <NavigationProperty Name="Pais" Relationship="Self.FK__Estado__id_pais__59FA5E80" FromRole="Estado" ToRole="Pais" />
+  </EntityType>
+  <EntityType Name="MetodoPago">
+    <Key>
+      <PropertyRef Name="id" />
+    </Key>
+    <Property Name="id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="nombre" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="apellido" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="codigo_postal" Type="String" MaxLength="5" FixedLength="false" Unicode="false" />
+    <Property Name="numero_tarjeta" Type="String" MaxLength="16" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="numero_seguridad" Type="String" MaxLength="3" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="fecha_vencimiento" Type="DateTime" Precision="0" />
+    <Property Name="activo" Type="Boolean" Nullable="false" />
+    <Property Name="id_usuario" Type="Int32" Nullable="false" />
+    <Property Name="id_direccion" Type="Int32" Nullable="false" />
+    <NavigationProperty Name="Direccion" Relationship="Self.FK__MetodoPag__id_di__656C112C" FromRole="MetodoPago" ToRole="Direccion" />
+    <NavigationProperty Name="Usuario" Relationship="Self.FK__MetodoPag__id_us__6477ECF3" FromRole="MetodoPago" ToRole="Usuario" />
+    <NavigationProperty Name="Orden" Relationship="Self.FK__Orden__id_pago__7D439ABD" FromRole="MetodoPago" ToRole="Orden" />
+  </EntityType>
+  <EntityType Name="Orden">
+    <Key>
+      <PropertyRef Name="id" />
+    </Key>
+    <Property Name="id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="costo_total" Type="Decimal" Precision="10" Scale="2" />
+    <Property Name="fecha_compra" Type="DateTime" Nullable="false" Precision="3" />
+    <Property Name="id_pago" Type="Int32" Nullable="false" />
+    <Property Name="id_direccion" Type="Int32" Nullable="false" />
+    <Property Name="id_usuario" Type="Int32" Nullable="false" />
+    <Property Name="id_cupon" Type="Int32" />
+    <NavigationProperty Name="Cupon" Relationship="Self.FK__Orden__id_cupon__00200768" FromRole="Orden" ToRole="Cupon" />
+    <NavigationProperty Name="Direccion" Relationship="Self.FK__Orden__id_direcc__7E37BEF6" FromRole="Orden" ToRole="Direccion" />
+    <NavigationProperty Name="MetodoPago" Relationship="Self.FK__Orden__id_pago__7D439ABD" FromRole="Orden" ToRole="MetodoPago" />
+    <NavigationProperty Name="Usuario" Relationship="Self.FK__Orden__id_usuari__7F2BE32F" FromRole="Orden" ToRole="Usuario" />
+    <NavigationProperty Name="OrdenItem" Relationship="Self.FK__OrdenItem__id_or__03F0984C" FromRole="Orden" ToRole="OrdenItem" />
+  </EntityType>
+  <EntityType Name="OrdenItem">
+    <Key>
+      <PropertyRef Name="id" />
+    </Key>
+    <Property Name="id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="cantidad" Type="Int32" Nullable="false" />
+    <Property Name="id_producto" Type="Int32" />
+    <Property Name="id_orden" Type="Int32" />
+    <NavigationProperty Name="Orden" Relationship="Self.FK__OrdenItem__id_or__03F0984C" FromRole="OrdenItem" ToRole="Orden" />
+    <NavigationProperty Name="Producto" Relationship="Self.FK__OrdenItem__id_pr__02FC7413" FromRole="OrdenItem" ToRole="Producto" />
+  </EntityType>
+  <EntityType Name="Pais">
+    <Key>
+      <PropertyRef Name="id" />
+    </Key>
+    <Property Name="id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="nombre" Type="String" MaxLength="255" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="abreviacion" Type="String" MaxLength="10" FixedLength="false" Unicode="false" />
+    <Property Name="moneda" Type="String" MaxLength="255" FixedLength="false" Unicode="false" />
+    <Property Name="telefono" Type="String" MaxLength="20" FixedLength="false" Unicode="false" />
+    <Property Name="bandera" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <NavigationProperty Name="Estado" Relationship="Self.FK__Estado__id_pais__59FA5E80" FromRole="Pais" ToRole="Estado" />
+  </EntityType>
+  <EntityType Name="Producto">
+    <Key>
+      <PropertyRef Name="id" />
+    </Key>
+    <Property Name="id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="nombre" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="descripcion" Type="String" MaxLength="1023" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="precio" Type="Decimal" Precision="8" Scale="2" Nullable="false" />
+    <Property Name="stock" Type="Int32" Nullable="false" />
+    <Property Name="activo" Type="Boolean" Nullable="false" />
+    <Property Name="id_categoria" Type="Int32" />
+    <NavigationProperty Name="CarritoItem" Relationship="Self.FK__CarritoIt__id_pr__70DDC3D8" FromRole="Producto" ToRole="CarritoItem" />
+    <NavigationProperty Name="Categoria" Relationship="Self.FK__Producto__id_cat__6E01572D" FromRole="Producto" ToRole="Categoria" />
+    <NavigationProperty Name="OrdenItem" Relationship="Self.FK__OrdenItem__id_pr__02FC7413" FromRole="Producto" ToRole="OrdenItem" />
+    <Property Name="imagen" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+  </EntityType>
+  <EntityType Name="TipoUsuario">
+    <Key>
+      <PropertyRef Name="id" />
+    </Key>
+    <Property Name="id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="nombre" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+    <NavigationProperty Name="Usuario" Relationship="Self.FK__Usuario__id_tipo__5535A963" FromRole="TipoUsuario" ToRole="Usuario" />
+  </EntityType>
+  <EntityType Name="Usuario">
+    <Key>
+      <PropertyRef Name="id" />
+    </Key>
+    <Property Name="id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="nombre" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="primer_apellido" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="segundo_apellido" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="email" Type="String" MaxLength="25" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="contraseña" Type="String" MaxLength="255" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="telefono" Type="String" MaxLength="12" FixedLength="false" Unicode="false" />
+    <Property Name="activo" Type="Boolean" Nullable="false" />
+    <Property Name="id_tipo" Type="Int32" Nullable="false" />
+    <NavigationProperty Name="CarritoItem" Relationship="Self.FK__CarritoIt__id_us__71D1E811" FromRole="Usuario" ToRole="CarritoItem" />
+    <NavigationProperty Name="Direccion" Relationship="Self.FK__Direccion__id_us__5FB337D6" FromRole="Usuario" ToRole="Direccion" />
+    <NavigationProperty Name="MetodoPago" Relationship="Self.FK__MetodoPag__id_us__6477ECF3" FromRole="Usuario" ToRole="MetodoPago" />
+    <NavigationProperty Name="Orden" Relationship="Self.FK__Orden__id_usuari__7F2BE32F" FromRole="Usuario" ToRole="Orden" />
+    <NavigationProperty Name="TipoUsuario" Relationship="Self.FK__Usuario__id_tipo__5535A963" FromRole="Usuario" ToRole="TipoUsuario" />
+  </EntityType>
+  <Association Name="FK__CarritoIt__id_pr__70DDC3D8">
+    <End Role="Producto" Type="Self.Producto" Multiplicity="0..1" />
+    <End Role="CarritoItem" Type="Self.CarritoItem" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Producto">
+        <PropertyRef Name="id" />
+      </Principal>
+      <Dependent Role="CarritoItem">
+        <PropertyRef Name="id_producto" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__CarritoIt__id_us__71D1E811">
+    <End Role="Usuario" Type="Self.Usuario" Multiplicity="0..1" />
+    <End Role="CarritoItem" Type="Self.CarritoItem" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Usuario">
+        <PropertyRef Name="id" />
+      </Principal>
+      <Dependent Role="CarritoItem">
+        <PropertyRef Name="id_usuario" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__Cupon__id_catego__74AE54BC">
+    <End Role="Categoria" Type="Self.Categoria" Multiplicity="0..1" />
+    <End Role="Cupon" Type="Self.Cupon" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Categoria">
+        <PropertyRef Name="id" />
+      </Principal>
+      <Dependent Role="Cupon">
+        <PropertyRef Name="id_categoria" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__Producto__id_cat__6E01572D">
+    <End Role="Categoria" Type="Self.Categoria" Multiplicity="0..1" />
+    <End Role="Producto" Type="Self.Producto" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Categoria">
+        <PropertyRef Name="id" />
+      </Principal>
+      <Dependent Role="Producto">
+        <PropertyRef Name="id_categoria" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__Ciudad__id_estad__5CD6CB2B">
+    <End Role="Estado" Type="Self.Estado" Multiplicity="1" />
+    <End Role="Ciudad" Type="Self.Ciudad" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Estado">
+        <PropertyRef Name="id" />
+      </Principal>
+      <Dependent Role="Ciudad">
+        <PropertyRef Name="id_estado" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__Direccion__id_ci__60A75C0F">
+    <End Role="Ciudad" Type="Self.Ciudad" Multiplicity="1" />
+    <End Role="Direccion" Type="Self.Direccion" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Ciudad">
+        <PropertyRef Name="id" />
+      </Principal>
+      <Dependent Role="Direccion">
+        <PropertyRef Name="id_ciudad" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__Orden__id_cupon__00200768">
+    <End Role="Cupon" Type="Self.Cupon" Multiplicity="0..1" />
+    <End Role="Orden" Type="Self.Orden" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Cupon">
+        <PropertyRef Name="id" />
+      </Principal>
+      <Dependent Role="Orden">
+        <PropertyRef Name="id_cupon" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__Direccion__id_us__5FB337D6">
+    <End Role="Usuario" Type="Self.Usuario" Multiplicity="1" />
+    <End Role="Direccion" Type="Self.Direccion" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Usuario">
+        <PropertyRef Name="id" />
+      </Principal>
+      <Dependent Role="Direccion">
+        <PropertyRef Name="id_usuario" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__MetodoPag__id_di__656C112C">
+    <End Role="Direccion" Type="Self.Direccion" Multiplicity="1" />
+    <End Role="MetodoPago" Type="Self.MetodoPago" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Direccion">
+        <PropertyRef Name="id" />
+      </Principal>
+      <Dependent Role="MetodoPago">
+        <PropertyRef Name="id_direccion" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__Orden__id_direcc__7E37BEF6">
+    <End Role="Direccion" Type="Self.Direccion" Multiplicity="1" />
+    <End Role="Orden" Type="Self.Orden" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Direccion">
+        <PropertyRef Name="id" />
+      </Principal>
+      <Dependent Role="Orden">
+        <PropertyRef Name="id_direccion" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__Estado__id_pais__59FA5E80">
+    <End Role="Pais" Type="Self.Pais" Multiplicity="1" />
+    <End Role="Estado" Type="Self.Estado" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Pais">
+        <PropertyRef Name="id" />
+      </Principal>
+      <Dependent Role="Estado">
+        <PropertyRef Name="id_pais" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__MetodoPag__id_us__6477ECF3">
+    <End Role="Usuario" Type="Self.Usuario" Multiplicity="1" />
+    <End Role="MetodoPago" Type="Self.MetodoPago" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Usuario">
+        <PropertyRef Name="id" />
+      </Principal>
+      <Dependent Role="MetodoPago">
+        <PropertyRef Name="id_usuario" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__Orden__id_pago__7D439ABD">
+    <End Role="MetodoPago" Type="Self.MetodoPago" Multiplicity="1" />
+    <End Role="Orden" Type="Self.Orden" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="MetodoPago">
+        <PropertyRef Name="id" />
+      </Principal>
+      <Dependent Role="Orden">
+        <PropertyRef Name="id_pago" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__Orden__id_usuari__7F2BE32F">
+    <End Role="Usuario" Type="Self.Usuario" Multiplicity="1" />
+    <End Role="Orden" Type="Self.Orden" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Usuario">
+        <PropertyRef Name="id" />
+      </Principal>
+      <Dependent Role="Orden">
+        <PropertyRef Name="id_usuario" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__OrdenItem__id_or__03F0984C">
+    <End Role="Orden" Type="Self.Orden" Multiplicity="0..1" />
+    <End Role="OrdenItem" Type="Self.OrdenItem" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Orden">
+        <PropertyRef Name="id" />
+      </Principal>
+      <Dependent Role="OrdenItem">
+        <PropertyRef Name="id_orden" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__OrdenItem__id_pr__02FC7413">
+    <End Role="Producto" Type="Self.Producto" Multiplicity="0..1" />
+    <End Role="OrdenItem" Type="Self.OrdenItem" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Producto">
+        <PropertyRef Name="id" />
+      </Principal>
+      <Dependent Role="OrdenItem">
+        <PropertyRef Name="id_producto" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__Usuario__id_tipo__5535A963">
+    <End Role="TipoUsuario" Type="Self.TipoUsuario" Multiplicity="1" />
+    <End Role="Usuario" Type="Self.Usuario" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="TipoUsuario">
+        <PropertyRef Name="id" />
+      </Principal>
+      <Dependent Role="Usuario">
+        <PropertyRef Name="id_tipo" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <EntityContainer Name="EZPCEntidades" annotation:LazyLoadingEnabled="true">
+    <EntitySet Name="CarritoItems" EntityType="Self.CarritoItem" />
+    <EntitySet Name="Categorias" EntityType="Self.Categoria" />
+    <EntitySet Name="Ciudades" EntityType="Self.Ciudad" />
+    <EntitySet Name="Cupones" EntityType="Self.Cupon" />
+    <EntitySet Name="Direcciones" EntityType="Self.Direccion" />
+    <EntitySet Name="Estados" EntityType="Self.Estado" />
+    <EntitySet Name="MetodosPago" EntityType="Self.MetodoPago" />
+    <EntitySet Name="Ordenes" EntityType="Self.Orden" />
+    <EntitySet Name="OrdenItems" EntityType="Self.OrdenItem" />
+    <EntitySet Name="Paises" EntityType="Self.Pais" />
+    <EntitySet Name="Productos" EntityType="Self.Producto" />
+    <EntitySet Name="TiposUsuario" EntityType="Self.TipoUsuario" />
+    <EntitySet Name="Usuarios" EntityType="Self.Usuario" />
+    <AssociationSet Name="FK__CarritoIt__id_pr__70DDC3D8" Association="Self.FK__CarritoIt__id_pr__70DDC3D8">
+      <End Role="Producto" EntitySet="Productos" />
+      <End Role="CarritoItem" EntitySet="CarritoItems" />
+    </AssociationSet>
+    <AssociationSet Name="FK__CarritoIt__id_us__71D1E811" Association="Self.FK__CarritoIt__id_us__71D1E811">
+      <End Role="Usuario" EntitySet="Usuarios" />
+      <End Role="CarritoItem" EntitySet="CarritoItems" />
+    </AssociationSet>
+    <AssociationSet Name="FK__Cupon__id_catego__74AE54BC" Association="Self.FK__Cupon__id_catego__74AE54BC">
+      <End Role="Categoria" EntitySet="Categorias" />
+      <End Role="Cupon" EntitySet="Cupones" />
+    </AssociationSet>
+    <AssociationSet Name="FK__Producto__id_cat__6E01572D" Association="Self.FK__Producto__id_cat__6E01572D">
+      <End Role="Categoria" EntitySet="Categorias" />
+      <End Role="Producto" EntitySet="Productos" />
+    </AssociationSet>
+    <AssociationSet Name="FK__Ciudad__id_estad__5CD6CB2B" Association="Self.FK__Ciudad__id_estad__5CD6CB2B">
+      <End Role="Estado" EntitySet="Estados" />
+      <End Role="Ciudad" EntitySet="Ciudades" />
+    </AssociationSet>
+    <AssociationSet Name="FK__Direccion__id_ci__60A75C0F" Association="Self.FK__Direccion__id_ci__60A75C0F">
+      <End Role="Ciudad" EntitySet="Ciudades" />
+      <End Role="Direccion" EntitySet="Direcciones" />
+    </AssociationSet>
+    <AssociationSet Name="FK__Orden__id_cupon__00200768" Association="Self.FK__Orden__id_cupon__00200768">
+      <End Role="Cupon" EntitySet="Cupones" />
+      <End Role="Orden" EntitySet="Ordenes" />
+    </AssociationSet>
+    <AssociationSet Name="FK__Direccion__id_us__5FB337D6" Association="Self.FK__Direccion__id_us__5FB337D6">
+      <End Role="Usuario" EntitySet="Usuarios" />
+      <End Role="Direccion" EntitySet="Direcciones" />
+    </AssociationSet>
+    <AssociationSet Name="FK__MetodoPag__id_di__656C112C" Association="Self.FK__MetodoPag__id_di__656C112C">
+      <End Role="Direccion" EntitySet="Direcciones" />
+      <End Role="MetodoPago" EntitySet="MetodosPago" />
+    </AssociationSet>
+    <AssociationSet Name="FK__Orden__id_direcc__7E37BEF6" Association="Self.FK__Orden__id_direcc__7E37BEF6">
+      <End Role="Direccion" EntitySet="Direcciones" />
+      <End Role="Orden" EntitySet="Ordenes" />
+    </AssociationSet>
+    <AssociationSet Name="FK__Estado__id_pais__59FA5E80" Association="Self.FK__Estado__id_pais__59FA5E80">
+      <End Role="Pais" EntitySet="Paises" />
+      <End Role="Estado" EntitySet="Estados" />
+    </AssociationSet>
+    <AssociationSet Name="FK__MetodoPag__id_us__6477ECF3" Association="Self.FK__MetodoPag__id_us__6477ECF3">
+      <End Role="Usuario" EntitySet="Usuarios" />
+      <End Role="MetodoPago" EntitySet="MetodosPago" />
+    </AssociationSet>
+    <AssociationSet Name="FK__Orden__id_pago__7D439ABD" Association="Self.FK__Orden__id_pago__7D439ABD">
+      <End Role="MetodoPago" EntitySet="MetodosPago" />
+      <End Role="Orden" EntitySet="Ordenes" />
+    </AssociationSet>
+    <AssociationSet Name="FK__Orden__id_usuari__7F2BE32F" Association="Self.FK__Orden__id_usuari__7F2BE32F">
+      <End Role="Usuario" EntitySet="Usuarios" />
+      <End Role="Orden" EntitySet="Ordenes" />
+    </AssociationSet>
+    <AssociationSet Name="FK__OrdenItem__id_or__03F0984C" Association="Self.FK__OrdenItem__id_or__03F0984C">
+      <End Role="Orden" EntitySet="Ordenes" />
+      <End Role="OrdenItem" EntitySet="OrdenItems" />
+    </AssociationSet>
+    <AssociationSet Name="FK__OrdenItem__id_pr__02FC7413" Association="Self.FK__OrdenItem__id_pr__02FC7413">
+      <End Role="Producto" EntitySet="Productos" />
+      <End Role="OrdenItem" EntitySet="OrdenItems" />
+    </AssociationSet>
+    <AssociationSet Name="FK__Usuario__id_tipo__5535A963" Association="Self.FK__Usuario__id_tipo__5535A963">
+      <End Role="TipoUsuario" EntitySet="TiposUsuario" />
+      <End Role="Usuario" EntitySet="Usuarios" />
+    </AssociationSet>
+    <EntitySet Name="Contactos" EntityType="EZPCModelo.Contacto" />
+    <AssociationSet Name="FK__Contacto__id_ciu__123EB7A3" Association="EZPCModelo.FK__Contacto__id_ciu__123EB7A3">
+      <End Role="Ciudad" EntitySet="Ciudades" />
+      <End Role="Contacto" EntitySet="Contactos" />
+    </AssociationSet>
+  </EntityContainer>
+  <EntityType Name="Contacto">
+    <Key>
+      <PropertyRef Name="id" />
+    </Key>
+    <Property Name="id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="nombre" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="primer_apellido" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="segundo_apellido" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="email" Type="String" Nullable="false" MaxLength="25" FixedLength="false" Unicode="false" />
+    <Property Name="telefono" Type="String" MaxLength="12" FixedLength="false" Unicode="false" />
+    <Property Name="num_ext" Type="String" MaxLength="5" FixedLength="false" Unicode="false" />
+    <Property Name="sugerencia" Type="String" MaxLength="1023" FixedLength="false" Unicode="false" />
+    <Property Name="id_ciudad" Type="Int32" />
+    <NavigationProperty Name="Ciudad" Relationship="EZPCModelo.FK__Contacto__id_ciu__123EB7A3" FromRole="Contacto" ToRole="Ciudad" />
+    <Property Name="direccion" Type="String" MaxLength="255" FixedLength="false" Unicode="false" />
+  </EntityType>
+  <Association Name="FK__Contacto__id_ciu__123EB7A3">
+    <End Type="EZPCModelo.Ciudad" Role="Ciudad" Multiplicity="0..1" />
+    <End Type="EZPCModelo.Contacto" Role="Contacto" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Ciudad">
+        <PropertyRef Name="id" />
+      </Principal>
+      <Dependent Role="Contacto">
+        <PropertyRef Name="id_ciudad" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+</Schema>

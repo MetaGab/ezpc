@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+ <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <edmx:Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <!-- Diagram content (shape and connector positions) -->
+    <edmx:Diagrams>
+      <Diagram DiagramId="b4331c3d91e14a1b8b5980730cb7a20f" Name="Diagram1">
+        <EntityTypeShape EntityType="MODELO.CarritoItem" Width="1.5" PointX="5.25" PointY="5.125" IsExpanded="true" />
+        <EntityTypeShape EntityType="MODELO.Categoria" Width="1.5" PointX="0.75" PointY="11.25" IsExpanded="true" />
+        <EntityTypeShape EntityType="MODELO.Ciudad" Width="1.5" PointX="6" PointY="1" IsExpanded="true" />
+        <EntityTypeShape EntityType="MODELO.Contacto" Width="1.5" PointX="8.25" PointY="9.125" IsExpanded="true" />
+        <EntityTypeShape EntityType="MODELO.Cupon" Width="1.5" PointX="10.5" PointY="0.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="MODELO.Direccion" Width="1.5" PointX="8.25" PointY="4.625" IsExpanded="true" />
+        <EntityTypeShape EntityType="MODELO.Estado" Width="1.5" PointX="3.75" PointY="1.25" IsExpanded="true" />
+        <EntityTypeShape EntityType="MODELO.MetodoPago" Width="1.5" PointX="10.5" PointY="4.5" IsExpanded="true" />
+        <EntityTypeShape EntityType="MODELO.Orden" Width="1.5" PointX="12.75" PointY="4.5" IsExpanded="true" />
+        <EntityTypeShape EntityType="MODELO.OrdenItem" Width="1.5" PointX="15" PointY="5.125" IsExpanded="true" />
+        <EntityTypeShape EntityType="MODELO.Pais" Width="1.5" PointX="1.5" PointY="15.5" IsExpanded="true" />
+        <EntityTypeShape EntityType="MODELO.Producto" Width="1.5" PointX="3" PointY="10.625" IsExpanded="true" />
+        <EntityTypeShape EntityType="MODELO.TipoUsuario" Width="1.5" PointX="0.75" PointY="5.375" IsExpanded="true" />
+        <EntityTypeShape EntityType="MODELO.Usuario" Width="1.5" PointX="3" PointY="4.375" IsExpanded="true" />
+        <AssociationConnector Association="MODELO.FK__CarritoIt__id_pr__70DDC3D8" ManuallyRouted="false" />
+        <AssociationConnector Association="MODELO.FK__CarritoIt__id_us__71D1E811" ManuallyRouted="false" />
+        <AssociationConnector Association="MODELO.FK__Cupon__id_catego__74AE54BC" ManuallyRouted="false" />
+        <AssociationConnector Association="MODELO.FK__Producto__id_cat__6E01572D" ManuallyRouted="false" />
+        <AssociationConnector Association="MODELO.FK__Ciudad__id_estad__5CD6CB2B" ManuallyRouted="false" />
+        <AssociationConnector Association="MODELO.FK__Contacto__id_ciu__151B244E" ManuallyRouted="false" />
+        <AssociationConnector Association="MODELO.FK__Direccion__id_ci__60A75C0F" ManuallyRouted="false" />
+        <AssociationConnector Association="MODELO.FK__Orden__id_cupon__00200768" ManuallyRouted="false" />
+        <AssociationConnector Association="MODELO.FK__Direccion__id_us__5FB337D6" ManuallyRouted="false" />
+        <AssociationConnector Association="MODELO.FK__MetodoPag__id_di__656C112C" ManuallyRouted="false" />
+        <AssociationConnector Association="MODELO.FK__Orden__id_direcc__7E37BEF6" ManuallyRouted="false" />
+        <AssociationConnector Association="MODELO.FK__Estado__id_pais__59FA5E80" ManuallyRouted="false" />
+        <AssociationConnector Association="MODELO.FK__MetodoPag__id_us__6477ECF3" ManuallyRouted="false" />
+        <AssociationConnector Association="MODELO.FK__Orden__id_pago__7D439ABD" ManuallyRouted="false" />
+        <AssociationConnector Association="MODELO.FK__Orden__id_usuari__7F2BE32F" ManuallyRouted="false" />
+        <AssociationConnector Association="MODELO.FK__OrdenItem__id_or__03F0984C" ManuallyRouted="false" />
+        <AssociationConnector Association="MODELO.FK__OrdenItem__id_pr__02FC7413" ManuallyRouted="false" />
+        <AssociationConnector Association="MODELO.FK__Usuario__id_tipo__5535A963" ManuallyRouted="false" />
+        <EntityTypeShape EntityType="MODELO.Oferta" Width="1.5" PointX="5.25" PointY="11.25" />
+        <AssociationConnector Association="MODELO.FK__Oferta__id_produ__3C34F16F" />
+      </Diagram>
+    </edmx:Diagrams>
+  </edmx:Designer>
+</edmx:Edmx>
