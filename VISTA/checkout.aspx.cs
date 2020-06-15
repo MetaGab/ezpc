@@ -191,7 +191,6 @@ namespace VISTA
                     direccionPago.id_usuario = usuario.id;
                     metodoPago.activo = true;
                     metodoPago.apellido = txtApellidoPago.Text;
-                    metodoPago.codigo_postal = txtCPPago.Text;
                     metodoPago.Direccion = direccionPago;
                     metodoPago.fecha_vencimiento = DateTime.ParseExact(txtExpiracion.Text, "MM/y", null);
                     metodoPago.id_usuario = usuario.id;

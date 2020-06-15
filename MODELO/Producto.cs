@@ -12,6 +12,7 @@ namespace MODELO
     using System;
     using System.Collections.Generic;
     using System.ComponentModel.DataAnnotations.Schema;
+
     public partial class Producto
     {
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2214:DoNotCallOverridableMethodsInConstructors")]
@@ -28,6 +29,7 @@ namespace MODELO
         public decimal precio { get; set; }
         public int stock { get; set; }
         public bool activo { get; set; }
+        public Nullable<int> id_categoria { get; set; }
         [NotMapped]
         public decimal precio_real
         {
@@ -43,7 +45,6 @@ namespace MODELO
             {
             }
         }
-        public Nullable<int> id_categoria { get; set; }
         public string imagen { get; set; }
     
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]

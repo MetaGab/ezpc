@@ -76,7 +76,6 @@
           <ScalarProperty Name="id" ColumnName="id" />
           <ScalarProperty Name="nombre" ColumnName="nombre" />
           <ScalarProperty Name="apellido" ColumnName="apellido" />
-          <ScalarProperty Name="codigo_postal" ColumnName="codigo_postal" />
           <ScalarProperty Name="numero_tarjeta" ColumnName="numero_tarjeta" />
           <ScalarProperty Name="numero_seguridad" ColumnName="numero_seguridad" />
           <ScalarProperty Name="fecha_vencimiento" ColumnName="fecha_vencimiento" />

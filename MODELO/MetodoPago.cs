@@ -23,7 +23,6 @@ namespace MODELO
         public int id { get; set; }
         public string nombre { get; set; }
         public string apellido { get; set; }
-        public string codigo_postal { get; set; }
         public string numero_tarjeta { get; set; }
         public string numero_seguridad { get; set; }
         public Nullable<System.DateTime> fecha_vencimiento { get; set; }
