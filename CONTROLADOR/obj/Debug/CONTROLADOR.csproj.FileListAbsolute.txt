@@ -20,3 +20,15 @@ C:\Users\Gabo\Google Drive\gascabros\ProyectoFinal\CONTROLADOR\obj\Debug\CONTROL
 C:\Users\Gabo\Google Drive\gascabros\ProyectoFinal\CONTROLADOR\obj\Debug\CONTROLADOR.csproj.CopyComplete
 C:\Users\Gabo\Google Drive\gascabros\ProyectoFinal\CONTROLADOR\obj\Debug\CONTROLADOR.dll
 C:\Users\Gabo\Google Drive\gascabros\ProyectoFinal\CONTROLADOR\obj\Debug\CONTROLADOR.pdb
+C:\Users\jorge\Desktop\ezpc\CONTROLADOR\bin\Debug\CONTROLADOR.dll
+C:\Users\jorge\Desktop\ezpc\CONTROLADOR\bin\Debug\CONTROLADOR.pdb
+C:\Users\jorge\Desktop\ezpc\CONTROLADOR\bin\Debug\MODELO.dll
+C:\Users\jorge\Desktop\ezpc\CONTROLADOR\bin\Debug\EntityFramework.dll
+C:\Users\jorge\Desktop\ezpc\CONTROLADOR\bin\Debug\MODELO.pdb
+C:\Users\jorge\Desktop\ezpc\CONTROLADOR\bin\Debug\MODELO.dll.config
+C:\Users\jorge\Desktop\ezpc\CONTROLADOR\bin\Debug\EntityFramework.xml
+C:\Users\jorge\Desktop\ezpc\CONTROLADOR\obj\Debug\CONTROLADOR.csprojAssemblyReference.cache
+C:\Users\jorge\Desktop\ezpc\CONTROLADOR\obj\Debug\CONTROLADOR.csproj.CoreCompileInputs.cache
+C:\Users\jorge\Desktop\ezpc\CONTROLADOR\obj\Debug\CONTROLADOR.csproj.CopyComplete
+C:\Users\jorge\Desktop\ezpc\CONTROLADOR\obj\Debug\CONTROLADOR.dll
+C:\Users\jorge\Desktop\ezpc\CONTROLADOR\obj\Debug\CONTROLADOR.pdb

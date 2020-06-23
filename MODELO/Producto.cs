@@ -22,7 +22,7 @@ namespace MODELO
             this.OrdenItem = new HashSet<OrdenItem>();
             this.Oferta = new HashSet<Oferta>();
         }
-    
+
         public int id { get; set; }
         public string nombre { get; set; }
         public string descripcion { get; set; }
@@ -36,7 +36,7 @@ namespace MODELO
             get
             {
                 var oferta = OfertaModelo.ObtenerOfertasDeProducto(this);
-                if (oferta !=  null)
+                if (oferta != null)
                 {
                     return Math.Round(precio * (1 - oferta.descuento), 2);
                 }
@@ -47,7 +47,7 @@ namespace MODELO
             }
         }
         public string imagen { get; set; }
-    
+
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<CarritoItem> CarritoItem { get; set; }
         public virtual Categoria Categoria { get; set; }

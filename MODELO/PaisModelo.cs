@@ -19,7 +19,7 @@ namespace MODELO
             }
             catch (Exception ex)
             {
-                throw new Exception(ex.Message);
+                throw ex;
             }
         }
         public static Pais BuscarPaisPorID(int id)

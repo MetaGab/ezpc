@@ -1,0 +1,12 @@
+C:\Users\jorge\Desktop\ezpc\MODELO\bin\Release\MODELO.dll.config
+C:\Users\jorge\Desktop\ezpc\MODELO\bin\Release\MODELO.dll
+C:\Users\jorge\Desktop\ezpc\MODELO\bin\Release\MODELO.pdb
+C:\Users\jorge\Desktop\ezpc\MODELO\bin\Release\EntityFramework.dll
+C:\Users\jorge\Desktop\ezpc\MODELO\bin\Release\EntityFramework.SqlServer.dll
+C:\Users\jorge\Desktop\ezpc\MODELO\bin\Release\EntityFramework.xml
+C:\Users\jorge\Desktop\ezpc\MODELO\bin\Release\EntityFramework.SqlServer.xml
+C:\Users\jorge\Desktop\ezpc\MODELO\obj\Release\MODELO.csprojAssemblyReference.cache
+C:\Users\jorge\Desktop\ezpc\MODELO\obj\Release\MODELO.csproj.CoreCompileInputs.cache
+C:\Users\jorge\Desktop\ezpc\MODELO\obj\Release\MODELO.csproj.CopyComplete
+C:\Users\jorge\Desktop\ezpc\MODELO\obj\Release\MODELO.dll
+C:\Users\jorge\Desktop\ezpc\MODELO\obj\Release\MODELO.pdb

@@ -18,5 +18,6 @@ namespace MODELO
         public System.DateTime fecha { get; set; }
         public string usuario { get; set; }
         public string tipo_operacion { get; set; }
+        public int id_oferta { get; set; }
     }
 }

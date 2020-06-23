@@ -19,3 +19,15 @@ C:\Users\Gabo\Google Drive\gascabros\ProyectoFinal\MODELO\obj\Debug\MODELO.cspro
 C:\Users\Gabo\Google Drive\gascabros\ProyectoFinal\MODELO\obj\Debug\MODELO.dll
 C:\Users\Gabo\Google Drive\gascabros\ProyectoFinal\MODELO\obj\Debug\MODELO.pdb
 C:\Users\Gabo\Google Drive\gascabros\ProyectoFinal\MODELO\obj\Debug\MODELO.csprojAssemblyReference.cache
+C:\Users\jorge\Desktop\ezpc\MODELO\bin\Debug\MODELO.dll.config
+C:\Users\jorge\Desktop\ezpc\MODELO\bin\Debug\MODELO.dll
+C:\Users\jorge\Desktop\ezpc\MODELO\bin\Debug\MODELO.pdb
+C:\Users\jorge\Desktop\ezpc\MODELO\bin\Debug\EntityFramework.dll
+C:\Users\jorge\Desktop\ezpc\MODELO\bin\Debug\EntityFramework.SqlServer.dll
+C:\Users\jorge\Desktop\ezpc\MODELO\bin\Debug\EntityFramework.xml
+C:\Users\jorge\Desktop\ezpc\MODELO\bin\Debug\EntityFramework.SqlServer.xml
+C:\Users\jorge\Desktop\ezpc\MODELO\obj\Debug\MODELO.csprojAssemblyReference.cache
+C:\Users\jorge\Desktop\ezpc\MODELO\obj\Debug\MODELO.csproj.CoreCompileInputs.cache
+C:\Users\jorge\Desktop\ezpc\MODELO\obj\Debug\MODELO.csproj.CopyComplete
+C:\Users\jorge\Desktop\ezpc\MODELO\obj\Debug\MODELO.dll
+C:\Users\jorge\Desktop\ezpc\MODELO\obj\Debug\MODELO.pdb

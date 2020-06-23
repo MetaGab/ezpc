@@ -1,0 +1,103 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Schema Namespace="MODELO.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+  <EntityType Name="Ciudad">
+    <Key>
+      <PropertyRef Name="id" />
+    </Key>
+    <Property Name="id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="estado_id" Type="int" />
+    <Property Name="clave" Type="int" />
+    <Property Name="nombre" Type="varchar" MaxLength="76" />
+    <Property Name="abrev" Type="varchar" MaxLength="6" />
+    <Property Name="activo" Type="bit" />
+  </EntityType>
+  <EntityType Name="Contacto">
+    <Key>
+      <PropertyRef Name="idContacto" />
+    </Key>
+    <Property Name="idContacto" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="nombre" Type="varchar" MaxLength="50" Nullable="false" />
+    <Property Name="primerApellido" Type="varchar" MaxLength="50" Nullable="false" />
+    <Property Name="segundoApellido" Type="varchar" MaxLength="50" />
+    <Property Name="correoElectronico" Type="varchar" MaxLength="50" Nullable="false" />
+    <Property Name="telefono" Type="varchar" MaxLength="10" />
+    <Property Name="direccion" Type="varchar" MaxLength="50" Nullable="false" />
+    <Property Name="numeroExterior" Type="varchar" MaxLength="5" Nullable="false" />
+    <Property Name="idCiudad" Type="int" Nullable="false" />
+    <Property Name="sugerencia" Type="varchar" MaxLength="250" />
+    <Property Name="activo" Type="bit" Nullable="false" />
+  </EntityType>
+  <EntityType Name="Estado">
+    <Key>
+      <PropertyRef Name="id" />
+    </Key>
+    <Property Name="id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="clave" Type="int" />
+    <Property Name="nombre" Type="varchar" MaxLength="40" />
+    <Property Name="abrev" Type="varchar" MaxLength="10" />
+    <Property Name="activo" Type="bit" />
+  </EntityType>
+  <EntityType Name="Producto">
+    <Key>
+      <PropertyRef Name="idProducto" />
+    </Key>
+    <Property Name="idProducto" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="nombreProducto" Type="varchar" MaxLength="50" Nullable="false" />
+    <Property Name="precio" Type="decimal" Precision="18" Scale="2" Nullable="false" />
+    <Property Name="categoria" Type="varchar" MaxLength="50" />
+    <Property Name="activo" Type="bit" Nullable="false" />
+  </EntityType>
+  <EntityType Name="Usuario">
+    <Key>
+      <PropertyRef Name="idUsuario" />
+    </Key>
+    <Property Name="idUsuario" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="nombre" Type="varchar" MaxLength="50" Nullable="false" />
+    <Property Name="primerApellido" Type="varchar" MaxLength="50" Nullable="false" />
+    <Property Name="segundoApellido" Type="varchar" MaxLength="50" />
+    <Property Name="correoElectronico" Type="varchar" MaxLength="50" Nullable="false" />
+    <Property Name="contrasena" Type="varchar" MaxLength="10" Nullable="false" />
+    <Property Name="telefono" Type="varchar" MaxLength="10" />
+    <Property Name="idRol" Type="int" Nullable="false" />
+    <Property Name="activo" Type="bit" Nullable="false" />
+  </EntityType>
+  <Association Name="FK__Ciudad__estado_i__38996AB5">
+    <End Role="Estado" Type="Self.Estado" Multiplicity="0..1" />
+    <End Role="Ciudad" Type="Self.Ciudad" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Estado">
+        <PropertyRef Name="id" />
+      </Principal>
+      <Dependent Role="Ciudad">
+        <PropertyRef Name="estado_id" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Contacto_Ciudad">
+    <End Role="Ciudad" Type="Self.Ciudad" Multiplicity="1" />
+    <End Role="Contacto" Type="Self.Contacto" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Ciudad">
+        <PropertyRef Name="id" />
+      </Principal>
+      <Dependent Role="Contacto">
+        <PropertyRef Name="idCiudad" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <EntityContainer Name="MODELOStoreContainer">
+    <EntitySet Name="Ciudad" EntityType="Self.Ciudad" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Contacto" EntityType="Self.Contacto" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Estado" EntityType="Self.Estado" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Producto" EntityType="Self.Producto" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Usuario" EntityType="Self.Usuario" Schema="dbo" store:Type="Tables" />
+    <AssociationSet Name="FK__Ciudad__estado_i__38996AB5" Association="Self.FK__Ciudad__estado_i__38996AB5">
+      <End Role="Estado" EntitySet="Estado" />
+      <End Role="Ciudad" EntitySet="Ciudad" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Contacto_Ciudad" Association="Self.FK_Contacto_Ciudad">
+      <End Role="Ciudad" EntitySet="Ciudad" />
+      <End Role="Contacto" EntitySet="Contacto" />
+    </AssociationSet>
+  </EntityContainer>
+</Schema>

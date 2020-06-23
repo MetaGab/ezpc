@@ -1,0 +1,12 @@
+C:\Users\jorge\Desktop\ezpc\CONTROLADOR\bin\Release\CONTROLADOR.dll
+C:\Users\jorge\Desktop\ezpc\CONTROLADOR\bin\Release\CONTROLADOR.pdb
+C:\Users\jorge\Desktop\ezpc\CONTROLADOR\bin\Release\MODELO.dll
+C:\Users\jorge\Desktop\ezpc\CONTROLADOR\bin\Release\EntityFramework.dll
+C:\Users\jorge\Desktop\ezpc\CONTROLADOR\bin\Release\MODELO.pdb
+C:\Users\jorge\Desktop\ezpc\CONTROLADOR\bin\Release\MODELO.dll.config
+C:\Users\jorge\Desktop\ezpc\CONTROLADOR\bin\Release\EntityFramework.xml
+C:\Users\jorge\Desktop\ezpc\CONTROLADOR\obj\Release\CONTROLADOR.csprojAssemblyReference.cache
+C:\Users\jorge\Desktop\ezpc\CONTROLADOR\obj\Release\CONTROLADOR.csproj.CoreCompileInputs.cache
+C:\Users\jorge\Desktop\ezpc\CONTROLADOR\obj\Release\CONTROLADOR.csproj.CopyComplete
+C:\Users\jorge\Desktop\ezpc\CONTROLADOR\obj\Release\CONTROLADOR.dll
+C:\Users\jorge\Desktop\ezpc\CONTROLADOR\obj\Release\CONTROLADOR.pdb

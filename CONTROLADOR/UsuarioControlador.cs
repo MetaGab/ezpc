@@ -37,7 +37,7 @@ namespace CONTROLADOR
             SmtpClient client = new SmtpClient("smtp.gmail.com");
             client.Port = 587;
             client.UseDefaultCredentials = false;
-            client.Credentials = new System.Net.NetworkCredential("humanware.ith@gmail.com", "*******");
+            client.Credentials = new System.Net.NetworkCredential("humanware.ith@gmail.com", "Human_W4r3");
             client.DeliveryMethod = SmtpDeliveryMethod.Network;
             client.Host = "smtp.gmail.com";
             client.EnableSsl = true;
