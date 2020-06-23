@@ -13,7 +13,7 @@ namespace VISTA
     {
         protected void Page_Load(object sender, EventArgs e)
         {
-            lstCategorias.DataSource = CategoriaControlador.ObtenerCategorias();
+            lstCategorias.DataSource = CategoriaControlador.ObtenerCategorias(true);
             lstCategorias.DataBind();
 
         }
@@ -24,7 +24,7 @@ namespace VISTA
 
             Usuario usuario = (Usuario)Session["usuario"];
             if (usuario == null) { 
-                Response.Redirect("login.aspx");
+                Response.Redirect("login.aspx?redirect=pc.aspx");
                 return;
             }
             foreach (string value in values.Split(','))

@@ -64,6 +64,10 @@
 				<li class="nav-item">
 					<a class="nav-link active" id="home-tab" data-toggle="tab" href="#home" role="tab" aria-controls="home" aria-selected="true">Descripción</a>
 				</li>
+				<li class="nav-item">
+					<a class="nav-link" id="review-tab" data-toggle="tab" href="#review" role="tab" aria-controls="review"
+					 aria-selected="false">Reviews</a>
+				</li>
 				<!--
 				<li class="nav-item">
 					<a class="nav-link" id="profile-tab" data-toggle="tab" href="#profile" role="tab" aria-controls="profile"
@@ -73,10 +77,7 @@
 					<a class="nav-link" id="contact-tab" data-toggle="tab" href="#contact" role="tab" aria-controls="contact"
 					 aria-selected="false">Comments</a>
 				</li>
-				<li class="nav-item">
-					<a class="nav-link" id="review-tab" data-toggle="tab" href="#review" role="tab" aria-controls="review"
-					 aria-selected="false">Reviews</a>
-				</li>-->
+				-->
 			</ul>
 			<div class="tab-content" id="myTabContent">
 				<div class="tab-pane fade show active" id="home" role="tabpanel" aria-labelledby="home-tab">
@@ -238,7 +239,7 @@
 							</div>
 						</div>
 					</div>
-				</div>
+				</div>-->
 				<div class="tab-pane fade" id="review" role="tabpanel" aria-labelledby="review-tab">
 					<div class="row">
 						<div class="col-lg-6">
@@ -365,7 +366,7 @@
 							</div>
 						</div>
 					</div>
-				</div>-->
+				</div>
 			</div>
 		</div>
 	</section>

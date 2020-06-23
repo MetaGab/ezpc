@@ -24,6 +24,15 @@ namespace VISTA
         protected global::System.Web.UI.HtmlControls.HtmlForm form1;
 
         /// <summary>
+        /// Control logged.
+        /// </summary>
+        /// <remarks>
+        /// Campo generado automáticamente.
+        /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
+        /// </remarks>
+        protected global::System.Web.UI.HtmlControls.HtmlGenericControl logged;
+
+        /// <summary>
         /// Control lblNombre.
         /// </summary>
         /// <remarks>
@@ -33,6 +42,15 @@ namespace VISTA
         protected global::System.Web.UI.WebControls.Label lblNombre;
 
         /// <summary>
+        /// Control admin_option.
+        /// </summary>
+        /// <remarks>
+        /// Campo generado automáticamente.
+        /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
+        /// </remarks>
+        protected global::System.Web.UI.HtmlControls.HtmlGenericControl admin_option;
+
+        /// <summary>
         /// Control lbtSalir.
         /// </summary>
         /// <remarks>
@@ -40,6 +58,15 @@ namespace VISTA
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
         protected global::System.Web.UI.WebControls.LinkButton lbtSalir;
+
+        /// <summary>
+        /// Control not_logged.
+        /// </summary>
+        /// <remarks>
+        /// Campo generado automáticamente.
+        /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
+        /// </remarks>
+        protected global::System.Web.UI.HtmlControls.HtmlGenericControl not_logged;
 
         /// <summary>
         /// Control mainContent.

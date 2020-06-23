@@ -27,7 +27,7 @@ namespace VISTA
             }
             else
             {
-                Response.Redirect("login.aspx");
+                Response.Redirect("login.aspx?redirect=carrito.aspx");
             }
         }
         protected void btnDown_Click(object sender, EventArgs e)
@@ -45,12 +45,12 @@ namespace VISTA
                 }
                 else
                 {
-                    Response.Redirect("login.aspx");
+                    Response.Redirect("login.aspx?redirect=carrito.aspx");
                 }
             }
             catch (Exception ex)
             {
-                ScriptManager.RegisterStartupScript(this, GetType(), "showalert", "alert('" + ex.Message + "');", true);
+                ScriptManager.RegisterStartupScript(this, this.GetType(), "script", "error('"+ex.Message+"');", true);
             }
         }
 
@@ -71,12 +71,12 @@ namespace VISTA
                 else
                 {
 
-                    Response.Redirect("login.aspx");
+                    Response.Redirect("login.aspx?redirect=carrito.aspx");
                 }
             }
             catch (Exception ex)
             {
-                ScriptManager.RegisterStartupScript(this, GetType(), "showalert", "alert('" + ex.Message + "');", true);
+                ScriptManager.RegisterStartupScript(this, this.GetType(), "script", "error('" + ex.Message + "');", true);
             }
         }
 
@@ -96,12 +96,12 @@ namespace VISTA
                 else
                 {
 
-                    Response.Redirect("login.aspx");
+                    Response.Redirect("login.aspx?redirect=carrito.aspx");
                 }
             }
             catch (Exception ex)
             {
-                ScriptManager.RegisterStartupScript(this, GetType(), "showalert", "alert('" + ex.Message + "');", true);
+                ScriptManager.RegisterStartupScript(this, this.GetType(), "script", "error('" + ex.Message + "');", true);
             }
 
         }

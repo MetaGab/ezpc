@@ -14,7 +14,6 @@
                                     <tr>
                                         <th>Campos</th>
                                         <th>Fecha</th>
-                                        <th>Usuario</th>
                                         <th>Tipo de Operacion</th>
                                     </tr>
                                 </thead>
@@ -25,7 +24,6 @@
                                             <tr>
                                                 <td><asp:Literal Text='<%#Eval("campos") %>' runat="server"></asp:Literal></td>
                                                 <td><asp:Literal Text='<%#Eval("fecha") %>' runat="server"></asp:Literal></td>
-                                                <td><asp:Literal Text='<%#Eval("usuario") %>' runat="server"></asp:Literal></td>
                                                 <td><asp:Literal Text='<%#Eval("tipo_operacion") %>' runat="server"></asp:Literal></td>
                                         </ItemTemplate>
                                     </asp:ListView>

@@ -8,13 +8,13 @@ namespace MODELO
 {
     public class ProductoModelo
     {
-        static public List<Producto> ObtenerProductos()
+        static public List<Producto> ObtenerProductos(bool estado)
         {
             try
             {
                 using (var contextoEntidades = new EZPCEntidades())
                 {
-                    return contextoEntidades.Productos.Include("Categoria").Include("Oferta").ToList();
+                    return contextoEntidades.Productos.Include("Categoria").Include("Oferta").Where(p => p.activo == estado).ToList();
                 }
             }
             catch (Exception ex)
@@ -46,7 +46,7 @@ namespace MODELO
                 using (var contextoEntidades = new EZPCEntidades())
                 {
                     var productos = from p in contextoEntidades.Productos.Include("Categoria").Include("Oferta")
-                                    where p.id == id && p.activo == true
+                                    where p.id == id
                                     select p;
                     return productos.FirstOrDefault();
                 }
@@ -93,17 +93,9 @@ namespace MODELO
         {
             try
             {
-                Producto producto = new Producto() { id = productoMod.id };
                 using (var contextoEntidades = new EZPCEntidades())
                 {
-                    contextoEntidades.Productos.Attach(producto);
-                    producto.descripcion = productoMod.descripcion;
-                    producto.id_categoria = productoMod.id_categoria;
-                    producto.nombre = productoMod.nombre;
-                    producto.precio = productoMod.precio;
-                    producto.stock = productoMod.stock;
-                    producto.activo = productoMod.activo;
-                    producto.imagen = productoMod.imagen;
+                    contextoEntidades.Entry(productoMod).State = System.Data.Entity.EntityState.Modified;
                     contextoEntidades.SaveChanges();
 
                 }

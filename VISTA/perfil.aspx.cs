@@ -18,7 +18,7 @@ namespace VISTA
                 Usuario usuario = (Usuario)Session["usuario"];
                 if (usuario == null)
                 {
-                    Response.Redirect("index.aspx");
+                    Response.Redirect("login.aspx?redirect=perfil.aspx");
                     return;
                 }
                 litEmail.Text = usuario.email;
@@ -47,11 +47,11 @@ namespace VISTA
                 usuario.segundo_apellido = txtSegundoApellido.Text;
                 usuario.email = txtCorreo.Text;
                 UsuarioControlador.ModificarUsuario(usuario);
-                Response.Redirect("perfil.aspx");
+                Page_Load(null, null);
             }
             catch (Exception ex)
             {
-                ScriptManager.RegisterStartupScript(this, GetType(), "showalert", "alert('" + ex.Message + "');", true);
+                ScriptManager.RegisterStartupScript(this, this.GetType(), "script", "error('" + ex.Message + "');", true);
             }
 
         }

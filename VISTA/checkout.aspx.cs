@@ -24,7 +24,7 @@ namespace VISTA
             }
             else
             {
-                Response.Redirect("login.aspx");
+                Response.Redirect("login.aspx?redirect=checkout.aspx");
             }
             if (!IsPostBack)
             {
@@ -67,7 +67,7 @@ namespace VISTA
             }
             catch (Exception ex)
             {
-                ScriptManager.RegisterStartupScript(this, GetType(), "showalert", "alert('" + ex.Message + "');", true);
+                ScriptManager.RegisterStartupScript(this, this.GetType(), "script", "error('" + ex.Message + "');", true);
             }
         }
 
@@ -84,7 +84,7 @@ namespace VISTA
             }
             catch (Exception ex)
             {
-                ScriptManager.RegisterStartupScript(this, GetType(), "showalert", "alert('" + ex.Message + "');", true);
+                ScriptManager.RegisterStartupScript(this, this.GetType(), "script", "error('" + ex.Message + "');", true);
             }
         }
         protected void ddlPaisEnvio_SelectedIndexChanged(object sender, EventArgs e)
@@ -100,7 +100,7 @@ namespace VISTA
             }
             catch (Exception ex)
             {
-                ScriptManager.RegisterStartupScript(this, GetType(), "showalert", "alert('" + ex.Message + "');", true);
+                ScriptManager.RegisterStartupScript(this, this.GetType(), "script", "error('" + ex.Message + "');", true);
             }
         }
 
@@ -117,7 +117,7 @@ namespace VISTA
             }
             catch (Exception ex)
             {
-                ScriptManager.RegisterStartupScript(this, GetType(), "showalert", "alert('" + ex.Message + "');", true);
+                ScriptManager.RegisterStartupScript(this, this.GetType(), "script", "error('" + ex.Message + "');", true);
             }
         }
 
@@ -207,7 +207,7 @@ namespace VISTA
             }
             catch (Exception ex)
             {
-                ScriptManager.RegisterStartupScript(this, GetType(), "showalert", "alert('" + ex.Message + "');", true);
+                ScriptManager.RegisterStartupScript(this, this.GetType(), "script", "error('" + ex.Message + "');", true);
             }
 
         }

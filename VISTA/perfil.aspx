@@ -148,7 +148,7 @@
 						                    </table>
                 						</div>
                                     </div>
-
+									<!--
                                     <div class="tab-pane fade" id="cuponesProfile" role="tabpanel" aria-labelledby="cuponesProfile-tab">
                                     	<div class="table-responsive">
 						                    <table class="table">
@@ -187,7 +187,7 @@
 						                        </tbody>
 						                    </table>
                 						</div>
-                                    </div>
+                                    </div>-->
                                 </div>
                             </div>
                         </div>

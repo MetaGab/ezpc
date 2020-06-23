@@ -14,16 +14,20 @@ namespace VISTA
         protected void Page_Load(object sender, EventArgs e)
         {
             Random rnd = new Random();
-            lstNewProd.DataSource = ProductoControlador.ObtenerProductos().OrderBy(i => rnd.Next()).Take(8);
+            lstNewProd.DataSource = ProductoControlador.ObtenerProductos(true).OrderBy(i => rnd.Next()).Take(8);
             lstNewProd.DataBind();
-            Producto prod = ProductoControlador.ObtenerProductos().Where(p => p.Oferta.Count > 0).OrderBy(p => p.Oferta.First().expiracion).First();
-            imgProducto.ImageUrl = "~/Include/img/product/" + prod.imagen;
-            lbtAñadir.CommandArgument = prod.id.ToString();
-            lblNombre.Text = prod.nombre;
-            lblPrecio.Text = "$" + prod.precio_real;
-            lblOriginal.Text = "$" + prod.precio;
-            litFecha.Text = '"' + prod.Oferta.First().expiracion.ToString("MMMM dd, yyyy") +'"';
-            lstOfertas.DataSource = ProductoControlador.ObtenerProductos().Where(p => p.Oferta.Count > 0);
+            Producto prod = ProductoControlador.ObtenerProductos(true).Where(p => p.Oferta.Count > 0 && p.Oferta.First().expiracion > DateTime.Now).OrderBy(p => p.Oferta.First().expiracion).FirstOrDefault();
+            if (prod != null)
+            {
+                imgProducto.ImageUrl = "~/Include/img/product/" + prod.imagen;
+                lbtAñadir.CommandArgument = prod.id.ToString();
+                lblNombre.Text = prod.nombre;
+                lblPrecio.Text = "$" + prod.precio_real;
+                lblOriginal.Text = "$" + prod.precio;
+                litFecha.Text = '"' + prod.Oferta.First().expiracion.ToString("MMMM dd, yyyy") + '"';
+
+            }
+            lstOfertas.DataSource = ProductoControlador.ObtenerProductos(true).Where(p => p.Oferta.Count > 0 && p.Oferta.First().expiracion > DateTime.Now);
             lstOfertas.DataBind();
         }
 
@@ -50,7 +54,7 @@ namespace VISTA
             }
             catch (Exception ex)
             {
-                ScriptManager.RegisterStartupScript(this, GetType(), "showalert", "alert('" + ex.Message + "');", true);
+                ScriptManager.RegisterStartupScript(this, this.GetType(), "script", "error('" + ex.Message + "');", true);
             }
         }
     }

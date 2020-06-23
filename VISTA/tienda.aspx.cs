@@ -15,7 +15,7 @@ namespace VISTA
         {
             if (!IsPostBack)
             {
-                lstCategorias.DataSource = CategoriaControlador.ObtenerCategorias();
+                lstCategorias.DataSource = CategoriaControlador.ObtenerCategorias(true);
                 lstCategorias.DataBind();
             }
             string categoria = Request.QueryString["cat"];
@@ -26,11 +26,11 @@ namespace VISTA
             }
             else if (oferta != null)
             {
-                lstProductos.DataSource = ProductoControlador.ObtenerProductos().Where(p => p.Oferta.Count > 0);
+                lstProductos.DataSource = ProductoControlador.ObtenerProductos(true).Where(p => p.Oferta.Count > 0 && p.Oferta.First().expiracion > DateTime.Now).ToList();
             }
             else
             {
-                lstProductos.DataSource = ProductoControlador.ObtenerProductos();
+                lstProductos.DataSource = ProductoControlador.ObtenerProductos(true);
             }
             lstProductos.DataBind();
         }
@@ -52,13 +52,13 @@ namespace VISTA
                 else
                 {
 
-                    Response.Redirect("login.aspx");
+                    Response.Redirect("login.aspx?redirect=tienda.aspx");
                 }
                 Response.Redirect("carrito.aspx");
             }
             catch (Exception ex)
             {
-                ScriptManager.RegisterStartupScript(this, GetType(), "showalert", "alert('" + ex.Message + "');", true);
+                ScriptManager.RegisterStartupScript(this, this.GetType(), "script", "error('" + ex.Message + "');", true);
             }
         }
 

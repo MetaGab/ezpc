@@ -39,9 +39,12 @@
 						<div class="row login_form">
 							<div class="col-md-12 form-group">
 								<asp:TextBox runat="server" class="form-control" ID="txtEmail" placeholder="Correo Electrónico" />
+								<asp:RequiredFieldValidator ID="rfvEmail" runat="server" ErrorMessage=" *Campo requerido" ForeColor="Navy" Display="Dynamic" ControlToValidate="txtEmail"></asp:RequiredFieldValidator>
+								<asp:RegularExpressionValidator ID="revEmail" runat="server" ErrorMessage=" *Formato incorrecto" ForeColor="Navy" ControlToValidate="txtEmail" ValidationExpression="\w+([-+.']\w+)*@\w+([-.]\w+)*\.\w+([-.]\w+)*" Display="Dynamic"></asp:RegularExpressionValidator>
 							</div>
 							<div class="col-md-12 form-group">
 								<asp:TextBox runat="server" class="form-control" ID="txtContraseña" placeholder="Contraseña" TextMode="Password" />
+								<asp:RequiredFieldValidator ID="rfvContraseña" runat="server" ErrorMessage=" *Campo requerido" ForeColor="Navy" Display="Dynamic" ControlToValidate="txtContraseña"></asp:RequiredFieldValidator>
 							</div>
 							<div class="col-md-12 form-group">
 								<div class="creat_account">

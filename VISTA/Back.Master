@@ -27,6 +27,26 @@
     <link rel="stylesheet" href="/Include/backoffice/css/style.css">
 
     <link href='https://fonts.googleapis.com/css?family=Open+Sans:400,600,700,800' rel='stylesheet' type='text/css'>
+    
+    <script src="/Include/vendors/jquery/dist/jquery.min.js"></script>
+    <script src="/Include/vendors/bootstrap/dist/js/bootstrap.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@9"></script>
+    <script>
+        function mostrarModal() {
+            jQuery(document).ready(function ($) {
+                $("#modal").modal('show');
+            });
+        }
+        function error(msg) {
+            jQuery(document).ready(function ($) {
+                Swal.fire({
+                    title: '¡Error!',
+                    text: msg,
+                    icon: 'error',
+                })
+            });
+        }
+    </script>
 
 </head>
 
@@ -53,17 +73,17 @@
                     <li class="menu-item-has-children dropdown">
                         <a href="#" class="dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"> <i class="menu-icon fa fa-laptop"></i>CRUD</a>
                         <ul class="sub-menu children dropdown-menu">
-                            <li><i class="fa fa-folder"></i><a href="/crud-cat.aspx">Categorias</a></li>
-                            <li><i class="fa fa-dropbox"></i><a href="/crud-prod.aspx">Productos</a></li>
-                            <li><i class="fa fa-shopping-cart"></i><a href="/crud-oferta.aspx">Ofertas</a></li>
+                            <li><i class="fa fa-folder"></i><a href="/CRUD/cat.aspx">Categorias</a></li>
+                            <li><i class="fa fa-dropbox"></i><a href="/CRUD/prod.aspx">Productos</a></li>
+                            <li><i class="fa fa-shopping-cart"></i><a href="/CRUD/oferta.aspx">Ofertas</a></li>
                         </ul>
                     </li>
                     <li class="menu-item-has-children dropdown">
                         <a href="#" class="dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"> <i class="menu-icon fa fa-file-text"></i>Registros</a>
                         <ul class="sub-menu children dropdown-menu">
-                            <li><i class="fa fa-money"></i><a href="/ordenes.aspx">Ordenes</a></li>
-                            <li><i class="fa fa-user"></i><a href="/usuarios.aspx">Usuarios</a></li>
-                            <li><i class="fa fa-envelope"></i><a href="/mensajes.aspx">Mensajes</a></li>
+                            <li><i class="fa fa-money"></i><a href="/Registro/ordenes.aspx">Ordenes</a></li>
+                            <li><i class="fa fa-user"></i><a href="/Registro/usuarios.aspx">Usuarios</a></li>
+                            <li><i class="fa fa-envelope"></i><a href="/Registro/mensajes.aspx">Mensajes</a></li>
                         </ul>
                     </li>
                     <li class="menu-item-has-children dropdown">
@@ -159,36 +179,10 @@
 
     <!-- Right Panel -->
 
-    <script src="/Include/vendors/jquery/dist/jquery.min.js"></script>
-    <script src="/Include/vendors/popper.js/dist/umd/popper.min.js"></script>
-    <script src="/Include/vendors/bootstrap/dist/js/bootstrap.min.js"></script>
     <script src="/Include/backoffice/js/main.js"></script>
 
 
-    <script src="/Include/vendors/chart.js/dist/Chart.bundle.min.js"></script>
     <script src="/Include/backoffice/js/dashboard.js"></script>
-    <script src="/Include/backoffice/js/widgets.js"></script>
-    <script src="/Include/vendors/jqvmap/dist/jquery.vmap.min.js"></script>
-    <script src="/Include/vendors/jqvmap/examples/js/jquery.vmap.sampledata.js"></script>
-    <script src="/Include/vendors/jqvmap/dist/maps/jquery.vmap.world.js"></script>
-    <script>
-        (function($) {
-            "use strict";
-
-            jQuery('#vmap').vectorMap({
-                map: 'world_en',
-                backgroundColor: null,
-                color: '#ffffff',
-                hoverOpacity: 0.7,
-                selectedColor: '#1de9b6',
-                enableZoom: true,
-                showTooltip: true,
-                values: sample_data,
-                scaleColors: ['#1de9b6', '#03a9f5'],
-                normalizeFunction: 'polynomial'
-            });
-        })(jQuery);
-    </script>
 <asp:ContentPlaceHolder ID="jsContent" runat="server"></asp:ContentPlaceHolder>
 </body>
 

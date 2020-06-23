@@ -95,6 +95,8 @@ namespace MODELO
                     usuario.primer_apellido = usuarioModificado.primer_apellido;
                     usuario.segundo_apellido = usuarioModificado.segundo_apellido;
                     usuario.telefono = usuarioModificado.telefono;
+                    usuario.id_tipo = usuarioModificado.id_tipo;
+                    usuario.contraseña = usuarioModificado.contraseña;
                     contextoEntidades.SaveChanges();
 
                 }

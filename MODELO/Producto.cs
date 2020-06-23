@@ -35,9 +35,10 @@ namespace MODELO
         {
             get
             {
-                if (Oferta.Count > 0)
+                var oferta = OfertaModelo.ObtenerOfertasDeProducto(this);
+                if (oferta !=  null)
                 {
-                    return Math.Round(precio * (1 - OfertaModelo.ObtenerOfertasDeProducto(this).descuento), 2);
+                    return Math.Round(precio * (1 - oferta.descuento), 2);
                 }
                 return precio;
             }

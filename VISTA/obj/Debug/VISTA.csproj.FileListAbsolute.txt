@@ -132,3 +132,4 @@ C:\Users\Gabo\Google Drive\gascabros\ProyectoFinal\VISTA\bin\EntityFramework.xml
 C:\Users\Gabo\Google Drive\gascabros\ProyectoFinal\VISTA\bin\EntityFramework.SqlServer.xml
 C:\Users\Gabo\Google Drive\gascabros\ProyectoFinal\VISTA\bin\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.xml
 C:\Users\Gabo\Google Drive\gascabros\ProyectoFinal\VISTA\obj\Debug\VISTA.csproj.CopyComplete
+C:\Users\Gabo\Google Drive\gascabros\ProyectoFinal\VISTA\bin\roslyn\desktop.ini

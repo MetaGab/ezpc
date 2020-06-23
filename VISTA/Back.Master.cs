@@ -16,9 +16,9 @@ namespace VISTA
             Usuario usuario = (Usuario)Session["usuario"];
             if (usuario == null || usuario.TipoUsuario.nombre != "Administrador")
             {
-                Response.Redirect("index.aspx");
+                Response.Redirect("/index.aspx");
             }
-            lblUsuario.Text = usuario.nombre + usuario.primer_apellido;
+            lblUsuario.Text = usuario.nombre +" "+ usuario.primer_apellido;
             
         }
     }

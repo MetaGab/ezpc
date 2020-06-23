@@ -8,13 +8,13 @@ namespace MODELO
 {
     public class CategoriaModelo
     {
-        static public List<Categoria> ObtenerCategorias()
+        static public List<Categoria> ObtenerCategorias(bool estado)
         {
             try
             {
                 using (var contextoEntidades = new EZPCEntidades())
                 {
-                    return contextoEntidades.Categorias.Include("Producto").ToList();
+                    return contextoEntidades.Categorias.Include("Producto").Where(c => c.activo == estado).ToList();
                 }
             }
             catch (Exception ex)
@@ -62,12 +62,9 @@ namespace MODELO
         {
             try
             {
-                Categoria cat = new Categoria() { id = catMod.id };
                 using (var contextoEntidades = new EZPCEntidades())
                 {
-                    contextoEntidades.Categorias.Attach(cat);
-                    cat.nombre = catMod.nombre;
-                    cat.activo = catMod.activo;
+                    contextoEntidades.Entry(catMod).State = System.Data.Entity.EntityState.Modified;
                     contextoEntidades.SaveChanges();
 
                 }

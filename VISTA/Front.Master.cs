@@ -19,7 +19,16 @@ namespace VISTA
             enSesion = usuario != null;
             if (enSesion)
             {
+                logged.Visible = true;
                 lblNombre.Text = usuario.nombre;
+                if (usuario.id_tipo == 2)
+                {
+                    admin_option.Visible = true;
+                }
+            }
+            else
+            {
+                not_logged.Visible = true;
             }
         }
 

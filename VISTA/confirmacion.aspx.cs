@@ -36,7 +36,7 @@ namespace VISTA
             }
             else
             {
-                Response.Redirect("login.aspx");
+                Response.Redirect("login.aspx?redirect=confirmacion.aspx");
             }
         }
     }

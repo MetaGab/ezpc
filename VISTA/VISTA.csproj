@@ -80,9 +80,9 @@
     <Content Include="checkout.aspx" />
     <Content Include="confirmacion.aspx" />
     <Content Include="contacto.aspx" />
-    <Content Include="crud-cat.aspx" />
-    <Content Include="crud-oferta.aspx" />
-    <Content Include="crud-prod.aspx" />
+    <Content Include="CRUD\cat.aspx" />
+    <Content Include="CRUD\oferta.aspx" />
+    <Content Include="CRUD\prod.aspx" />
     <Content Include="dashboard.aspx" />
     <Content Include="Include\backoffice\css\style.css" />
     <Content Include="Include\backoffice\js\dashboard.js" />
@@ -2043,14 +2043,14 @@
     <Content Include="Include\vendors\themify-icons\ie7\ie7.js" />
     <Content Include="index.aspx" />
     <Content Include="login.aspx" />
-    <Content Include="mensajes.aspx" />
-    <Content Include="ordenes.aspx" />
+    <Content Include="Registro\mensajes.aspx" />
+    <Content Include="Registro\ordenes.aspx" />
     <Content Include="pc.aspx" />
     <Content Include="perfil.aspx" />
     <Content Include="producto.aspx" />
     <Content Include="signup.aspx" />
     <Content Include="tienda.aspx" />
-    <Content Include="usuarios.aspx" />
+    <Content Include="Registro\usuarios.aspx" />
     <Content Include="ventas.aspx" />
     <Content Include="Web.config" />
   </ItemGroup>
@@ -2104,26 +2104,26 @@
     <Compile Include="contacto.aspx.designer.cs">
       <DependentUpon>contacto.aspx</DependentUpon>
     </Compile>
-    <Compile Include="crud-cat.aspx.cs">
-      <DependentUpon>crud-cat.aspx</DependentUpon>
+    <Compile Include="CRUD\cat.aspx.cs">
+      <DependentUpon>cat.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
     </Compile>
-    <Compile Include="crud-cat.aspx.designer.cs">
-      <DependentUpon>crud-cat.aspx</DependentUpon>
+    <Compile Include="CRUD\cat.aspx.designer.cs">
+      <DependentUpon>cat.aspx</DependentUpon>
     </Compile>
-    <Compile Include="crud-oferta.aspx.cs">
-      <DependentUpon>crud-oferta.aspx</DependentUpon>
+    <Compile Include="CRUD\oferta.aspx.cs">
+      <DependentUpon>oferta.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
     </Compile>
-    <Compile Include="crud-oferta.aspx.designer.cs">
-      <DependentUpon>crud-oferta.aspx</DependentUpon>
+    <Compile Include="CRUD\oferta.aspx.designer.cs">
+      <DependentUpon>oferta.aspx</DependentUpon>
     </Compile>
-    <Compile Include="crud-prod.aspx.cs">
-      <DependentUpon>crud-prod.aspx</DependentUpon>
+    <Compile Include="CRUD\prod.aspx.cs">
+      <DependentUpon>prod.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
     </Compile>
-    <Compile Include="crud-prod.aspx.designer.cs">
-      <DependentUpon>crud-prod.aspx</DependentUpon>
+    <Compile Include="CRUD\prod.aspx.designer.cs">
+      <DependentUpon>prod.aspx</DependentUpon>
     </Compile>
     <Compile Include="dashboard.aspx.cs">
       <DependentUpon>dashboard.aspx</DependentUpon>
@@ -2153,18 +2153,18 @@
     <Compile Include="login.aspx.designer.cs">
       <DependentUpon>login.aspx</DependentUpon>
     </Compile>
-    <Compile Include="mensajes.aspx.cs">
+    <Compile Include="Registro\mensajes.aspx.cs">
       <DependentUpon>mensajes.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
     </Compile>
-    <Compile Include="mensajes.aspx.designer.cs">
+    <Compile Include="Registro\mensajes.aspx.designer.cs">
       <DependentUpon>mensajes.aspx</DependentUpon>
     </Compile>
-    <Compile Include="ordenes.aspx.cs">
+    <Compile Include="Registro\ordenes.aspx.cs">
       <DependentUpon>ordenes.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
     </Compile>
-    <Compile Include="ordenes.aspx.designer.cs">
+    <Compile Include="Registro\ordenes.aspx.designer.cs">
       <DependentUpon>ordenes.aspx</DependentUpon>
     </Compile>
     <Compile Include="pc.aspx.cs">
@@ -2203,11 +2203,11 @@
     <Compile Include="tienda.aspx.designer.cs">
       <DependentUpon>tienda.aspx</DependentUpon>
     </Compile>
-    <Compile Include="usuarios.aspx.cs">
+    <Compile Include="Registro\usuarios.aspx.cs">
       <DependentUpon>usuarios.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
     </Compile>
-    <Compile Include="usuarios.aspx.designer.cs">
+    <Compile Include="Registro\usuarios.aspx.designer.cs">
       <DependentUpon>usuarios.aspx</DependentUpon>
     </Compile>
     <Compile Include="ventas.aspx.cs">

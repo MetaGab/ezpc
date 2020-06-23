@@ -92,11 +92,11 @@ namespace CONTROLADOR
                 throw new Exception(ex.Message);
             }
         }
-        public static List<Producto> ObtenerProductos()
+        public static List<Producto> ObtenerProductos(bool estado)
         {
             try
             {
-                return ProductoModelo.ObtenerProductos();
+                return ProductoModelo.ObtenerProductos(estado);
             }
             catch (Exception ex)
             {

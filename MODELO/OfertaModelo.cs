@@ -48,7 +48,9 @@ namespace MODELO
             {
                 using (var contextoEntidades = new EZPCEntidades())
                 {
+                    var now = DateTime.Now;
                     var ofertas = from o in contextoEntidades.Ofertas.Include("Producto") where o.id_producto == prod.id
+                                  && o.expiracion > now
                                   select o;
                     return ofertas.FirstOrDefault();
                 }

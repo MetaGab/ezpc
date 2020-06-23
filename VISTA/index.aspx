@@ -132,7 +132,7 @@
 					<div class="single-deal">
 						<div class="overlay"></div>
 						<img class="img-fluid w-100" src="Include/img/product/sale.png" alt="">
-						<a  href="tienda.aspx?ofertas=True">
+						<a href="tienda.aspx?ofertas=True">
 							<div class="deal-details">
 								<h6 class="deal-title">Ofertas</h6>
 							</div>

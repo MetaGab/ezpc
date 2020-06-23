@@ -23,18 +23,26 @@ namespace VISTA
                 Usuario objUsuario = UsuarioControlador.LogIn(txtEmail.Text, txtContraseña.Text);
 
                 Session["usuario"] = objUsuario;
+                string redirect = Request.QueryString["redirect"];
                 if (objUsuario.TipoUsuario.nombre == "Administrador")
                 {
                     Response.Redirect("dashboard.aspx");
                 }
                 else if (objUsuario.TipoUsuario.nombre == "Cliente")
                 {
-                    Response.Redirect("index.aspx");
+                    if (redirect != string.Empty )
+                    {
+                        Response.Redirect(redirect);
+                    }
+                    else
+                    {
+                        Response.Redirect("index.aspx");
+                    }
                 }
             }
             catch (Exception ex)
             {
-                ScriptManager.RegisterStartupScript(this, GetType(), "showalert", "alert('" + ex.Message + "');", true);
+                ScriptManager.RegisterStartupScript(this, this.GetType(), "script", "error('" + ex.Message + "');", true);
             }
         }
     }

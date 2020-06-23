@@ -48,10 +48,6 @@ namespace CONTROLADOR
         {
             try
             {
-                if (categoria.Producto.Count() > 0)
-                {
-                    throw new Exception("Existen productos asociados a esta categoría");
-                }
 
                 CategoriaModelo.EliminarCategoria(categoria);
 
@@ -61,11 +57,11 @@ namespace CONTROLADOR
                 throw new Exception(ex.Message);
             }
         }
-        public static List<Categoria> ObtenerCategorias()
+        public static List<Categoria> ObtenerCategorias(bool estado)
         {
             try
             {
-                return CategoriaModelo.ObtenerCategorias();
+                return CategoriaModelo.ObtenerCategorias(estado);
             }
             catch (Exception ex)
             {

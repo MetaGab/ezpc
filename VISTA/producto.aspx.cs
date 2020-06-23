@@ -69,13 +69,13 @@ namespace VISTA
                 else
                 {
 
-                    Response.Redirect("login.aspx");
+                    Response.Redirect("login.aspx?redirect=producto.aspx?id=" + Request.QueryString["id"]);
                 }
                 Response.Redirect("carrito.aspx");
             }
             catch (Exception ex)
             {
-                ScriptManager.RegisterStartupScript(this, GetType(), "showalert", "alert('" + ex.Message + "');", true);
+                ScriptManager.RegisterStartupScript(this, this.GetType(), "script", "error('" + ex.Message + "');", true);
             }
         }
 
